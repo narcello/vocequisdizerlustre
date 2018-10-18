@@ -1,0 +1,22 @@
+.albunsCapas {
+    justify-content: center;
+    display: flex
+}
+
+.capas {
+    width: 20em;
+    height: 20em;
+    margin: 0 2em 0 2em
+}
+
+#capaApego {
+    order: 0;
+}
+
+#capaCcufg {
+    order: 1;
+}
+
+#capaEp {
+    order: 2;
+}

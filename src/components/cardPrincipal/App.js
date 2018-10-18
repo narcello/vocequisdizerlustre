@@ -4,6 +4,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
+import Bio from '../bio/Bio'
+import Albuns from '../albuns/Albuns'
+import Rider from '../rider/Rider'
+
 import './App.css';
 
 library.add(fab, fas, faTwitter)
@@ -15,9 +19,7 @@ class App extends Component {
     this.mouseLeave = this.mouseLeave.bind(this)
   }
   mouseEnter(e) {
-    const target = document.querySelector(".target");
-    const links = document.querySelectorAll(".itemMenu");
-    const colors = ["deepskyblue", "orange", "firebrick", "gold", "magenta", "black", "darkblue"];
+    const links = document.querySelectorAll(".menu a");
 
     if (!e.target.classList.contains("active")) {
       for (let i = 0; i < links.length; i++) {
@@ -29,28 +31,14 @@ class App extends Component {
 
       e.target.classList.add("active");
       e.target.style.opacity = "1";
-
-      const width = e.target.getBoundingClientRect().width;
-      const height = e.target.getBoundingClientRect().height;
-      const left = e.target.getBoundingClientRect().left + window.pageXOffset;
-      const top = e.target.getBoundingClientRect().top + window.pageYOffset;
-      const color = colors[Math.floor(Math.random() * colors.length)];
-
-      target.style.width = `${width}px`;
-      target.style.height = `${height}px`;
-      target.style.left = `${left}px`;
-      target.style.top = `${top}px`;
-      target.style.borderColor = color;
-      target.style.transform = "none";
       
       for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener("click", (e) => e.preventDefault());
         links[i].addEventListener("mouseenter", this.mouseEnter);
       }
     }
   }
   mouseLeave() {
-    const links = document.querySelectorAll(".itemMenu");
+    const links = document.querySelectorAll(".menu a");
     for (let i = 0; i < links.length; i++) {
       links[i].style.opacity = "1";
     }
@@ -63,15 +51,16 @@ class App extends Component {
           <img src={capa} alt='down' id='capa'></img>
           <div id='bottom-card'>
             <div class='menu'>
-              <div onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='bio' class='itemMenu'>Bio</div>
-              <div onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='albuns' class='itemMenu'>Albuns</div>
-              <div onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='rider' class='itemMenu'>Rider</div>
+              <a onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='bio' href='#bioComponent'>Bio</a>
+              <a onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='albuns' href='#albunsComponent'>Albuns</a>
+              <a onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='rider' href='#riderComponent'>Rider</a>
             </div>
             <i class="material-icons"></i>
-
           </div>
-          <span class="target"></span>
         </header>
+        <a id='bioComponent'><Bio /></a>
+        <a id='albunsComponent'><Albuns /></a>
+        <a id='riderComponent'><Rider /></a>
       </div>
     );
   }

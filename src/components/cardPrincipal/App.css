@@ -30,17 +30,17 @@
   transform: translateX(-60px);
 }
 
-#bottom-card .itemMenu,
+#bottom-card .menu a,
 .target {
   transition: all .35s ease-in-out;
 }
 
-.itemMenu:hover {
+.menu a:hover {
   color: rgb(83, 42, 32);
   cursor: pointer;
 }
 
-.itemMenu {
+.menu a {
 
   text-decoration: none;
   float: left;
