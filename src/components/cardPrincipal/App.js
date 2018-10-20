@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import capa from './capa2.jpg'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
