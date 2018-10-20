@@ -1,6 +1,20 @@
-#bioText {
+#bioSection {
     display: flex;
+    flex-direction: column;
+}
+
+#bioText {
+    order: 0;
+    text-align: initial;
+    font-size: 11vmin;
     padding: 0 12vmin;
-    background-color: #4c0b12d7;
-    position: relative;
+    background-color: #bba34d;
+}
+
+#autor {
+    order: 1;
+    font-size: 4vmin;
+    padding: 0 12vmin;
+    background-color: #bba34d;
+    text-align: right;
 }

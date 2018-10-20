@@ -1,7 +1,8 @@
 .albunsCapas {
     justify-content: center;
+    width: 100%;
     display: flex;
-    background-color: brown;
+    background-color: #bba34d;
 }
 
 .capas {
@@ -16,6 +17,7 @@
 
 #capaCcufg {
     order: 1;
+    width: 40vmin;
 }
 
 #capaEp {

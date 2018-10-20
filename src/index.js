@@ -1,10 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/cardPrincipal/App';
+import Inicio from './components/cardPrincipal/App';
+import Bio from './components/bio/Bio';
+import Albuns from './components/albuns/Albuns';
+import Rider from './components/rider/Rider';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import ReactFullpage from '@fullpage/react-fullpage';
+
+const Fullpage = () => (
+    <ReactFullpage
+      render={() => {
+        return (
+          <ReactFullpage.Wrapper>
+          <div className='section' id='incioComponent'><Inicio /></div>
+          <div className='section' id='bioComponent'><Bio /></div>
+          <div className='section' id='albunsComponent'><Albuns /></div>
+          <div className='section' id='riderComponent'><Rider /></div>
+          </ReactFullpage.Wrapper>
+        );
+      }}
+    />
+  );
+
+
+ReactDOM.render(<Fullpage />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
