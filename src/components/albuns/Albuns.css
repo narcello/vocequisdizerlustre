@@ -1,11 +1,12 @@
 .albunsCapas {
     justify-content: center;
-    display: flex
+    display: flex;
+    background-color: brown;
 }
 
 .capas {
-    width: 20em;
-    height: 20em;
+    width: 30vmin;
+    height: 30vmin;
     margin: 0 2em 0 2em
 }
 

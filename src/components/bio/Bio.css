@@ -1,4 +1,6 @@
 #bioText {
+    display: flex;
     padding: 0 12vmin;
-    background-color: #4c0b12d7 
+    background-color: #4c0b12d7;
+    position: relative;
 }

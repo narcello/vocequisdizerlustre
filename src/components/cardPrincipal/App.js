@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import capa from './capa.jpg'
+import capa from './capa2.jpg'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -31,7 +31,7 @@ class App extends Component {
 
       e.target.classList.add("active");
       e.target.style.opacity = "1";
-      
+
       for (let i = 0; i < links.length; i++) {
         links[i].addEventListener("mouseenter", this.mouseEnter);
       }
@@ -46,10 +46,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-        <h2>Você quis dizer: <i>lustre</i> ?</h2>
-          <img src={capa} alt='down' id='capa'></img>
-          <div id='bottom-card'>
+        <header className="parallax App-header">
+          <h2>Você quis dizer: <i>lustre</i> ?</h2>
+          
+          
+        </header>
+          <div id='bioComponent'><Bio /></div>
+          <div id='albunsComponent'><Albuns /></div>
+          <div id='riderComponent'><Rider /></div>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+/**
+ * <img src={capa} alt='down' id='capa'></img>
+ * 
+ * <div id='bottom-card'>
             <div class='menu'>
               <a onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='bio' href='#bioComponent'>Bio</a>
               <a onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} id='albuns' href='#albunsComponent'>Albuns</a>
@@ -57,13 +72,4 @@ class App extends Component {
             </div>
             <i class="material-icons"></i>
           </div>
-        </header>
-        <a id='bioComponent'><Bio /></a>
-        <a id='albunsComponent'><Albuns /></a>
-        <a id='riderComponent'><Rider /></a>
-      </div>
-    );
-  }
-}
-
-export default App;
+ */
