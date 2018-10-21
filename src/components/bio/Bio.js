@@ -8,7 +8,7 @@ class Bio extends React.Component {
                 <div id='bioText'>
                     “Um plano distópico e cinzento cheio de monstros apáticos”
             </div>
-                <div id='autor'>Leon Carelli em <i>O Popular</i></div>
+                <div id='autor'>Leon Carelli</div>
             </div>
         )
 

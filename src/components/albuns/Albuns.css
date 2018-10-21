@@ -1,5 +1,8 @@
 .albunsCapas {
     background-color: #bba34d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fp-section {
@@ -7,19 +10,17 @@
 }
 
 .capas {
-    width: 80vmin;
-    height: 80vmin;
-}
-
-#capaApego {
-    order: 0;
+    width: 70vmin;
+    height: 70vmin;
 }
 
 #capaCcufg {
-    order: 1;
     width: 90vmin;
 }
 
-#capaEp {
-    order: 2;
+.fab {
+    font-size: 12vmin
+}
+
+#iconesRedesSociais {
 }

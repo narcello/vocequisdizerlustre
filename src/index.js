@@ -9,16 +9,21 @@ import * as serviceWorker from './serviceWorker';
 
 import ReactFullpage from '@fullpage/react-fullpage';
 
+const fullpageOptions = {
+    resetSliders: true,
+    parallax: true
+  };
+
 class Fullpage extends React.Component {
     onLeave(origin, destination, direction) {
         console.log(origin)
         // arguments are mapped in order of fullpage.js callback arguments
         // do something with the event
     }
-    onL
     render() {
         return (
             <ReactFullpage
+            {...fullpageOptions}
             onLeave={this.onLeave.bind(this)}
                 render={({ state, fullpageApi }) => {
                     return (
