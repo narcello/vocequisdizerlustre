@@ -17,10 +17,20 @@
 #capaCcufg {
     width: 90vmin;
 }
+/* 
+#capaEp {
+    width: 100vmin;
+} */
 
 .fab {
-    font-size: 12vmin
+    font-size: 12vmin;
+    margin: 5vmin 5vmin 0 5vmin
 }
 
-#iconesRedesSociais {
+.fab.fa-spotify:hover {
+    color: #5fe252
+}
+
+.fab.fa-youtube:hover {
+    color: #dc1313
 }
