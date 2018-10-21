@@ -1,78 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
-
-#capa{
-  height: 11em;
-  width: 15em;
-  border-radius: 0.5em 0.5em 0 0
-}
-.menu{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
-  margin-top: 1em
-}
-
-#bottom-card {
-  width: 15em;
-  background-color:#C0A45D;
-  border-radius: 1px;
-  border-radius: 0 0 0.3em 0.3em
-}
-
-.target {
-  position: absolute;
-  border-bottom: 4px solid transparent;
-  z-index: -1;
-  transform: translateX(-60px);
-}
-
-#bottom-card .menu a,
-.target {
-  transition: all .35s ease-in-out;
-}
-
-.menu a:hover {
-  color: rgb(83, 42, 32);
-  cursor: pointer;
-}
-
-.menu a {
-
-  text-decoration: none;
-  float: left;
-  margin: 0 1em 0.2em 1em;
-}
-
-#bio {
-  order: 0;
-}
-
-#albuns {
-  order: 1;
-}
-
-#rider {
-  order: 2;
-}
-
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
 }
 
 .App-header {
   background-color: #4c0b12;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -91,17 +27,4 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -8,13 +8,11 @@
     text-align: initial;
     font-size: 11vmin;
     padding: 0 12vmin;
-    background-color: #bba34d;
 }
 
 #autor {
     order: 1;
     font-size: 4vmin;
     padding: 0 12vmin;
-    background-color: #bba34d;
     text-align: right;
 }

@@ -9,20 +9,34 @@ import * as serviceWorker from './serviceWorker';
 
 import ReactFullpage from '@fullpage/react-fullpage';
 
-const Fullpage = () => (
-    <ReactFullpage
-      render={() => {
+class Fullpage extends React.Component {
+    onLeave(origin, destination, direction) {
+        console.log(origin)
+        // arguments are mapped in order of fullpage.js callback arguments
+        // do something with the event
+    }
+    onL
+    render() {
         return (
-          <ReactFullpage.Wrapper>
-          <div className='section' id='incioComponent'><Inicio /></div>
-          <div className='section' id='bioComponent'><Bio /></div>
-          <div className='section' id='albunsComponent'><Albuns /></div>
-          <div className='section' id='riderComponent'><Rider /></div>
-          </ReactFullpage.Wrapper>
-        );
-      }}
-    />
-  );
+            <ReactFullpage
+            onLeave={this.onLeave.bind(this)}
+                render={({ state, fullpageApi }) => {
+                    return (
+                        <ReactFullpage.Wrapper>
+                            <div className='section' id='incioComponent'><Inicio /></div>
+                            <div className='section' id='bioComponent'><Bio /></div>
+                            <div className='section' id='albunsComponent'><Albuns /></div>
+                            <div className='section' id='riderComponent'><Rider /></div>
+                        </ReactFullpage.Wrapper>
+                    );
+                }}
+            />
+        )
+    }
+}
+
+
+
 
 
 ReactDOM.render(<Fullpage />, document.getElementById('root'));

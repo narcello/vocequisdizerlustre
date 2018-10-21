@@ -10,11 +10,17 @@ class Albuns extends React.Component {
     render() {
         return (
             <div className='albunsCapas'>
-                <img alt="" className='capas' id='capaApego' src={capaApego}></img>
-                <img alt="" className='capas' id='capaCcufg' src={capaCcufg}></img>
-                <img alt="" className='capas' id='capaEp' src={capaEp}></img>
+                <div className='slide'>
+                <img alt="Apego" className='capas' id='capaApego' src={capaApego}></img>
+                </div>
+                <div className='slide'>
+                    <img alt="CCUFG" className='capas' id='capaCcufg' src={capaCcufg}></img>
+                </div>
+                <div className='slide'>
+                    <img alt="EP" className='capas' id='capaEp' src={capaEp}></img>
+                </div>
             </div>
-            )
+        )
     }
 }
 

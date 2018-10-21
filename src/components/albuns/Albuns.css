@@ -1,14 +1,14 @@
 .albunsCapas {
-    justify-content: center;
-    width: 100%;
-    display: flex;
     background-color: #bba34d;
 }
 
+.fp-section {
+    text-align: center
+}
+
 .capas {
-    width: 30vmin;
-    height: 30vmin;
-    margin: 0 2em 0 2em
+    width: 80vmin;
+    height: 80vmin;
 }
 
 #capaApego {
@@ -17,7 +17,7 @@
 
 #capaCcufg {
     order: 1;
-    width: 40vmin;
+    width: 90vmin;
 }
 
 #capaEp {
