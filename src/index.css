@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#incioComponent .fp-bg {
+  background-image: url("./components/cardPrincipal/capa.jpg");
+  background-position: center 80%;
+  background-size: cover;
+}

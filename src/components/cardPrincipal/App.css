@@ -15,11 +15,11 @@
   color: white;
 }
 
-.parallax {
+/* .parallax {
   background-image: url("./capa.jpg");
   height: 500px; 
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */

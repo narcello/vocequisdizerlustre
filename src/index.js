@@ -4,7 +4,6 @@ import './index.css';
 import Inicio from './components/cardPrincipal/App';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-import Rider from './components/rider/Rider';
 import * as serviceWorker from './serviceWorker';
 
 import ReactFullpage from '@fullpage/react-fullpage';
