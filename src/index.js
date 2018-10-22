@@ -9,7 +9,6 @@ import * as serviceWorker from './serviceWorker';
 import ReactFullpage from '@fullpage/react-fullpage';
 
 const fullpageOptions = {
-    resetSliders: true,
     parallax: true,
     slidesNavigation: true,
     controlArrows: false,
