@@ -23,7 +23,7 @@ class Fullpage extends React.Component {
             {...fullpageOptions}
                 render={({ state, fullpageApi }) => {
                     return (
-                        <ReactFullpage.Wrapper>
+                        <ReactFullpage.Wrapper className='fp-auto-height-responsive'>
                             <div className='section' id='incioComponent'><Inicio /></div>
                             <div className='section' id='bioComponent'><Bio /></div>
                             <div className='section' id='albunsComponent'><Albuns /></div>
