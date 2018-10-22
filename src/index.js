@@ -12,30 +12,21 @@ import ReactFullpage from '@fullpage/react-fullpage';
 const fullpageOptions = {
     resetSliders: true,
     parallax: true,
-    navigation: true,
     slidesNavigation: true,
-    slidesNavPosition: 'top',
     controlArrows: false,
   };
 
 class Fullpage extends React.Component {
-    onLeave(origin, destination, direction) {
-        console.log(origin)
-        // arguments are mapped in order of fullpage.js callback arguments
-        // do something with the event
-    }
     render() {
         return (
             <ReactFullpage
             {...fullpageOptions}
-            onLeave={this.onLeave.bind(this)}
                 render={({ state, fullpageApi }) => {
                     return (
                         <ReactFullpage.Wrapper>
                             <div className='section' id='incioComponent'><Inicio /></div>
                             <div className='section' id='bioComponent'><Bio /></div>
                             <div className='section' id='albunsComponent'><Albuns /></div>
-                            <div className='section' id='riderComponent'><Rider /></div>
                         </ReactFullpage.Wrapper>
                     );
                 }}
