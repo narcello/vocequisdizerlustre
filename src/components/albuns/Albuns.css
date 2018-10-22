@@ -14,21 +14,13 @@
     height: 70vmin;
 }
 
-#capaCcufg {
-    width: 90vmin;
-}
-/* 
-#capaEp {
-    width: 100vmin;
-} */
-
 .fab {
     font-size: 12vmin;
     margin: 5vmin 5vmin 0 5vmin
 }
 
 .fab.fa-spotify:hover {
-    color: #5fe252
+    color: #1e7d15
 }
 
 .fab.fa-youtube:hover {

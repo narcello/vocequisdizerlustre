@@ -11,7 +11,11 @@ import ReactFullpage from '@fullpage/react-fullpage';
 
 const fullpageOptions = {
     resetSliders: true,
-    parallax: true
+    parallax: true,
+    navigation: true,
+    slidesNavigation: true,
+    slidesNavPosition: 'top',
+    controlArrows: false,
   };
 
 class Fullpage extends React.Component {
