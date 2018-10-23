@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/vocequisdizerlustre/precache-manifest.4819bb95244cdad48c42c66489af2749.js"
+  "/vocequisdizerlustre/precache-manifest.8923d94cd3a6838913775943d5275d5f.js"
 );
 
 workbox.clientsClaim();
