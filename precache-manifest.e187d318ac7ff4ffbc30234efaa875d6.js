@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/vocequisdizerlustre/static/css/main.62edfb18.chunk.css"
   },
   {
-    "revision": "3b64acec807f0f5fe62936c3c39efe91",
+    "revision": "78729c081c665bdfa64e15dc4e2e0d49",
     "url": "/vocequisdizerlustre/index.html"
   }
 ];
