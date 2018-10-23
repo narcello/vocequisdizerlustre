@@ -1,30 +1,37 @@
+import * as serviceWorker from './serviceWorker';
+import configFirebase from './firebase/index'
+import firebase from "firebase";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactFullpage from '@fullpage/react-fullpage';
 import './index.css';
+
 import Inicio from './components/cardPrincipal/App';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-import * as serviceWorker from './serviceWorker';
+import Rider from './components/rider/Rider';
 
-import ReactFullpage from '@fullpage/react-fullpage';
+firebase.initializeApp(configFirebase);
 
 const fullpageOptions = {
     parallax: true,
     slidesNavigation: true,
     controlArrows: false,
-  };
+};
 
 class Fullpage extends React.Component {
     render() {
         return (
             <ReactFullpage
-            {...fullpageOptions}
+                {...fullpageOptions}
                 render={({ state, fullpageApi }) => {
                     return (
                         <ReactFullpage.Wrapper className='fp-auto-height-responsive'>
                             <div className='section' id='incioComponent'><Inicio /></div>
                             <div className='section' id='bioComponent'><Bio /></div>
                             <div className='section' id='albunsComponent'><Albuns /></div>
+                            <div className='section' id='riderComponent'><Rider /></div>
                         </ReactFullpage.Wrapper>
                     );
                 }}
@@ -32,10 +39,6 @@ class Fullpage extends React.Component {
         )
     }
 }
-
-
-
-
 
 ReactDOM.render(<Fullpage />, document.getElementById('root'));
 
