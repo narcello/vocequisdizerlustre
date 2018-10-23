@@ -10,12 +10,12 @@
 }
 
 .capas {
-    width: 70vmin;
-    height: 70vmin;
+    width: 60vmin;
+    height: 60vmin;
 }
 
 .fab {
-    font-size: 12vmin;
+    font-size: calc(15px + 6vmin);
     margin: 5vmin 5vmin 0 5vmin
 }
 
