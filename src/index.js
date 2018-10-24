@@ -10,7 +10,8 @@ import './index.css';
 import Inicio from './components/cardPrincipal/App';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-import Mapa from './components/mapa/Mapa';
+import Mapa from './components/mapa/index';
+import MapaTeste from './components/mapa/Mapa';
 
 firebase.initializeApp(configFirebase);
 
@@ -18,6 +19,7 @@ const fullpageOptions = {
     parallax: true,
     slidesNavigation: true,
     controlArrows: false,
+    licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
 };
 
 class Fullpage extends React.Component {
@@ -36,6 +38,19 @@ class Fullpage extends React.Component {
                     );
                 }}
             />
+        )
+    }
+}
+
+class Teste extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className='section' id='incioComponent'><Inicio /></div>
+                <div className='section' id='bioComponent'><Bio /></div>
+                <div className='section' id='albunsComponent'><Albuns /></div>
+                <div className='section' id='riderComponent'><MapaTeste /></div>
+            </div>
         )
     }
 }

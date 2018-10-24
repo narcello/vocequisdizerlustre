@@ -22,3 +22,4 @@ yarn-error.log*
 
 
 /src/firebase
+/src/components/mapa/index.js

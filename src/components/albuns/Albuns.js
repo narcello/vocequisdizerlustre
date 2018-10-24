@@ -35,21 +35,21 @@ class Albuns extends React.Component {
                 <div className='slide'>
                     <img alt="APEGO" className='capas' id='capaApego' src={capaApego}></img>
                     <div id='iconesRedesSociais'>
-                        <i onClick={this.abreLink} class="fab fa-spotify"></i>
-                        <i onClick={this.abreLink} class="fab fa-youtube"></i>
+                        <i onClick={this.abreLink} className="fab fa-spotify"></i>
+                        <i onClick={this.abreLink} className="fab fa-youtube"></i>
                     </div>
                 </div>
                 <div className='slide'>
                     <img alt="CCUFG" className='capas' id='capaCcufg' src={capaCcufg}></img>
                     <div id='iconesRedesSociais'>
-                        <i title='Álbum completo' onClick={this.abreLink} class="fab fa-spotify"></i>
-                        <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} class="fab fa-youtube"></i>
+                        <i title='Álbum completo' onClick={this.abreLink} className="fab fa-spotify"></i>
+                        <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube"></i>
                     </div>
                 </div>
                 <div className='slide'>
                     <img alt="EP" className='capas' id='capaEp' src={capaEp}></img>
                     <div id='iconesRedesSociais'>
-                        <i onClick={this.abreLink} class="fab fa-youtube"></i>
+                        <i onClick={this.abreLink} className="fab fa-youtube"></i>
                     </div>
                 </div>
             </div>
