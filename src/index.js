@@ -10,7 +10,7 @@ import './index.css';
 import Inicio from './components/cardPrincipal/App';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-import Rider from './components/rider/Rider';
+import Mapa from './components/mapa/Mapa';
 
 firebase.initializeApp(configFirebase);
 
@@ -31,7 +31,7 @@ class Fullpage extends React.Component {
                             <div className='section' id='incioComponent'><Inicio /></div>
                             <div className='section' id='bioComponent'><Bio /></div>
                             <div className='section' id='albunsComponent'><Albuns /></div>
-                            <div className='section' id='riderComponent'><Rider /></div>
+                            <div className='section' id='riderComponent'><Mapa /></div>
                         </ReactFullpage.Wrapper>
                     );
                 }}

@@ -1,7 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
 
-class Rider extends React.Component {
+class Mapa extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -19,4 +19,4 @@ class Rider extends React.Component {
     }
 }
 
-export default Rider
+export default Mapa
