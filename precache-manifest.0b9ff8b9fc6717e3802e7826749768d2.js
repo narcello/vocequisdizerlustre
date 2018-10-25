@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/vocequisdizerlustre/static/js/runtime~main.f5721575.js"
   },
   {
-    "revision": "a9b53453ec0c2c5ab070",
-    "url": "/vocequisdizerlustre/static/js/main.a9b53453.chunk.js"
+    "revision": "bf3af765930420064adc",
+    "url": "/vocequisdizerlustre/static/js/main.bf3af765.chunk.js"
   },
   {
-    "revision": "d077d685eff76d5294ef",
-    "url": "/vocequisdizerlustre/static/js/1.d077d685.chunk.js"
+    "revision": "332aa8d49fa741ffa587",
+    "url": "/vocequisdizerlustre/static/js/1.332aa8d4.chunk.js"
   },
   {
-    "revision": "a9b53453ec0c2c5ab070",
-    "url": "/vocequisdizerlustre/static/css/main.a23f3694.chunk.css"
+    "revision": "bf3af765930420064adc",
+    "url": "/vocequisdizerlustre/static/css/main.c7783b46.chunk.css"
   },
   {
-    "revision": "53a50045429108bbc70148bfd8601ba6",
+    "revision": "b9fcd68feb1253ebdbd4af3598789965",
     "url": "/vocequisdizerlustre/index.html"
   }
 ];
