@@ -10,8 +10,37 @@
     float: right;
 }
 
-#ladoEsquerdo {
+#parteSemMapa {
     height: 100%;
     width: 20%;
     float: left;
+}
+
+
+
+
+
+@media (max-width: 500px) {
+    #container{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #map{
+        order: 0;
+        height: 90%;
+        width: 100%;
+    }
+    
+    #parteSemMapa {
+        order: 1;
+        height: 10%;
+        width: 100%;
+    }
+
+    #addMarcadorNoBancoBtn {
+        width: 100%;
+        height: 100%;
+    }
 }

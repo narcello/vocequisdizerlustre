@@ -82,8 +82,8 @@ export default class RenderMapa extends Component {
     render() {
         return (
             <div id='container'>
-                <div id='ladoEsquerdo'>
-                    <button onClick={this.addMarcadorNoBanco}>Venham tocar aqui</button>
+                <div id='parteSemMapa'>
+                    <button id='addMarcadorNoBancoBtn' onClick={this.addMarcadorNoBanco}>Venham tocar aqui</button>
                 </div>
                 <div id='map'></div>
             </div>
