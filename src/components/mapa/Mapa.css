@@ -1,0 +1,22 @@
+#container{
+    height: 100%;
+    display: flex;
+    flex-direction: row wrap;
+}
+
+#map{
+    height: 100%;
+    width: 100%;
+}
+
+#renderMapa{
+    height: 100%;
+    width: 80%;
+    float: right;
+}
+
+#ladoEsquerdo {
+    height: 100%;
+    width: 20%;
+    float: left;
+}

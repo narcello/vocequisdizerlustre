@@ -1,8 +1,39 @@
-import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
 import React, { Component } from 'react'
 import firebase from 'firebase'
+import loadGoogleMapsApi from 'load-google-maps-api'
+import apiKey from './index'
+import './Mapa.css'
 
-export default class Mapa extends Component {
+class RenderMapa extends Component {
+    constructor() {
+        super()
+        this.state = {
+            teste: null
+        }
+    }
+    componentDidMount() {
+        const options = {
+            key: apiKey
+        }
+
+        loadGoogleMapsApi(options).then(function (googleMaps) {
+            new googleMaps.Map(document.querySelector('#map'), {
+                center: {
+                    lat: 40.7484405,
+                    lng: -73.9944191
+                },
+                zoom: 12
+            })
+        }).catch(function (error) {
+            console.error(error)
+        })
+    }
+    render() {
+        return (<div id='map'></div>)
+    }
+}
+
+export default class Mapa extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -16,20 +47,10 @@ export default class Mapa extends Component {
     }
     render() {
         return (
-            <div className='Mapa'>
-                {this.state.teste}
-                <Map google={this.props.google} zoom={14}>
-
-                    <Marker onClick={this.onMarkerClick}
-                        name={'Current location'} />
-
-                    <InfoWindow onClose={this.onInfoWindowClose}>
-                        <div>
-                            <h1>teste</h1>
-                        </div>
-                    </InfoWindow>
-                </Map>
-            </div>
+                <div id='container'>
+                    <div id='ladoEsquerdo'>{this.state.teste}</div>
+                    <div id='renderMapa'><RenderMapa /></div>
+                </div>
         )
     }
 }
