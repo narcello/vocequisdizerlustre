@@ -15,6 +15,7 @@ import Mapa from './components/mapa/Mapa';
 firebase.initializeApp(configFirebase);
 
 const fullpageOptions = {
+    autoScrolling: true,
     parallax: true,
     slidesNavigation: true,
     controlArrows: false,

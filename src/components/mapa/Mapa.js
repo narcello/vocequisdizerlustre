@@ -48,6 +48,11 @@ export default class RenderMapa extends Component {
             self.map = new googleMaps.Map(document.querySelector('#map'), {
                 center: self.state.center,
                 zoom: 9,
+                disableDefaultUI: true,
+                zoomControl: true,
+                zoomControlOptions: {
+                    position: googleMaps.ControlPosition.RIGHT_CENTER
+                },
             })
         }).catch(function (error) {
             console.error(error)
@@ -116,7 +121,7 @@ export default class RenderMapa extends Component {
         return (
             <div id='container'>
                 <div id='parteSemMapa'>
-                <div id='title'>Quer Lutre na sua cidade?</div>
+                    <div id='title'>Quer Lutre na sua cidade?</div>
                     <Button variant="contained"
                         color="primary"
                         id='addMarcadorNoBancoBtn'
