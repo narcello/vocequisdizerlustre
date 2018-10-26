@@ -82,7 +82,6 @@ export default class RenderMapa extends Component {
     }
     addMarcadorNoBanco = () => {
         const self = this
-        debugger
         this.pegaLocalizacaoDoUsuario((res) => {
             if (res.position) {
                 const coordinatesBrowser = {
@@ -117,11 +116,12 @@ export default class RenderMapa extends Component {
         return (
             <div id='container'>
                 <div id='parteSemMapa'>
+                <div id='title'>Quer Lutre na sua cidade?</div>
                     <Button variant="contained"
                         color="primary"
                         id='addMarcadorNoBancoBtn'
                         onClick={this.addMarcadorNoBanco}>
-                        Venham tocar aqui
+                        <div id="someAparece">Quer Lutre na sua cidade? </div> Eu quero
                     </Button>
                 </div>
                 <div id='map'></div>

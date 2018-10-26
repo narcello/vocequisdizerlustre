@@ -10,37 +10,73 @@
 
 #map{
     height: 100%;
-    width: 80%;
+    width: 100%;
     float: right;
+	-webkit-overflow-scrolling: auto;
 }
 
 #parteSemMapa {
+    display: flex;
     height: 100%;
-    width: 20%;
+    width: 50vmin;
     float: left;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (max-width: 500px) {
+#title{
+    height: 5vmin;
+}
+#someAparece {
+    display: none
+}
+
+#addMarcadorNoBancoBtn {
+    display: flex;
+    height: 6vmin;
+    width: 90%;
+    margin-bottom: 6vmin;
+    justify-self: flex-end
+}
+
+@media (max-width: 584px) {
     #container{
         height: 100%;
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
     }
     
     #map{
         order: 0;
-        height: 90%;
+        height: 50%;
         width: 100%;
+        -webkit-overflow-scrolling: auto;
     }
     
     #parteSemMapa {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
         order: 1;
         height: 10%;
         width: 100%;
+    }
+    
+    #title{
+        display: none;
+    }
+
+    #someAparece {
+        display: inline;
+        margin-right: 1vmin;
     }
 
     #addMarcadorNoBancoBtn {
         width: 100%;
         height: 100%;
+        margin-bottom: 0;
     }
 }
