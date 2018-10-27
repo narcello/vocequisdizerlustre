@@ -120,8 +120,8 @@ export default class RenderMapa extends Component {
     render() {
         return (
             <div id='container'>
-                <div id='parteSemMapa'>
-                    <div id='title'>Quer Lutre na sua cidade?</div>
+                <div id='title'>Quer Lutre na sua cidade?</div>
+                <div id='divAddMarcadorNoBancoBtn'>
                     <Button variant="contained"
                         color="primary"
                         id='addMarcadorNoBancoBtn'
