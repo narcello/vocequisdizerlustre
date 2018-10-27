@@ -126,7 +126,7 @@ export default class RenderMapa extends Component {
                         color="primary"
                         id='addMarcadorNoBancoBtn'
                         onClick={this.addMarcadorNoBanco}>
-                        <div id="someAparece">Quer Lutre na sua cidade? </div> Eu quero
+                        Eu quero
                     </Button>
                 </div>
                 <div id='map'></div>
