@@ -6,6 +6,7 @@
     height: 100vh;
     display: flex;
     flex-direction: row wrap;
+    align-items: center;
 }
 
 #map{
@@ -37,6 +38,12 @@
     justify-self: flex-end
 }
 
+#titleMobile, 
+#addMarcadorNoBancoBtnMobile, 
+#divAddMarcadorNoBancoBtnMobile {
+    display: none;
+}
+
 @media (max-width: 584px) {
     #container{
         height: 100%;
@@ -49,22 +56,7 @@
         -webkit-overflow-scrolling: auto;
     }
     
-    #parteSemMapa {
-        display: flex;
-        float: unset;
-        flex-direction: unset;
-        align-items: unset;
-        justify-content: center;
-        
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-        bottom: 0;
-        text-align: -webkit-center;
-        
-    }
-    
-    #title{
+    #titleMobile {
         width: 100%;
         height: 55px;
         z-index: 1;
@@ -77,19 +69,22 @@
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         font-weight: 500;
         font-size: 17px;
-        text-transform: uppercase;
+        text-transform: uppercase;    
+        align-self: flex-start;
     }
 
-    #divAddMarcadorNoBancoBtn{
-        width: 100%;
+    #divAddMarcadorNoBancoBtnMobile {
         display: flex;
+        width: 100%;
         justify-content: center;
     }
 
-    #addMarcadorNoBancoBtn {
+    #addMarcadorNoBancoBtnMobile {
+        display: flex;
         width: 170px;
         position: fixed;
         bottom: 0;
+        margin-bottom: 7vmin;
         z-index: 1;
         font-size: 16px;
         border-radius: 26px;

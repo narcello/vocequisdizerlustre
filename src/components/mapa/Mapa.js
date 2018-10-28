@@ -22,7 +22,8 @@ export default class RenderMapa extends Component {
                 showPopup: false,
                 userName: null,
                 srcPhoto: null
-            }
+            },
+            ehBrowser: false
         }
         this.options = {
             key: apiKey
@@ -33,8 +34,20 @@ export default class RenderMapa extends Component {
         this.addMarcadorNoBanco = this.addMarcadorNoBanco.bind(this)
         this.pegaLocalizacaoDoUsuario = this.pegaLocalizacaoDoUsuario.bind(this)
         this.togglePopup = this.togglePopup.bind(this)
+        this.updateDimensions = this.updateDimensions.bind(this)
+    }
+    updateDimensions() {
+        const ehBrowser = window.innerWidth > 584
+        this.setState({ ehBrowser })
+    }
+    componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
     }
     componentWillMount() {
+        this.updateDimensions();
         const self = this
 
         let coordinates = []
@@ -117,17 +130,31 @@ export default class RenderMapa extends Component {
             }
         });
     }
+    componentForBrowser = () => {
+        return (
+            <div id='parteSemMapa'>
+                <div id='title'>Quer Lutre na sua cidade?</div>
+                <Button variant="contained"
+                    color="primary"
+                    id='addMarcadorNoBancoBtn'
+                    onClick={this.addMarcadorNoBanco}>
+                    Eu quero
+                        </Button>
+            </div>
+        )
+    }
     render() {
         return (
             <div id='container'>
-                <div id='title'>Quer Lutre na sua cidade?</div>
-                <div id='divAddMarcadorNoBancoBtn'>
+                { this.state.ehBrowser && this.componentForBrowser() }
+                <div id='titleMobile'>Quer Lutre na sua cidade?</div>
+                <div id='divAddMarcadorNoBancoBtnMobile'>
                     <Button variant="contained"
                         color="primary"
-                        id='addMarcadorNoBancoBtn'
+                        id='addMarcadorNoBancoBtnMobile'
                         onClick={this.addMarcadorNoBanco}>
                         Eu quero
-                    </Button>
+                </Button>
                 </div>
                 <div id='map'></div>
                 {this.state.popup.showPopup ?
