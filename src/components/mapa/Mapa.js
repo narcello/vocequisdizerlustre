@@ -7,6 +7,11 @@ import './Mapa.css'
 import addMarcadorNoBancoSoa from './soa'
 import Popup from './Popup'
 import authWithGoogle from '../auth/withGoogle'
+import styleMapRetro from './styleMapRetro'
+import styleMapNight from './styleMapNight'
+
+const VISAO_RETRO_DO_MAPA = 1
+const VISAO_NOTURNA_DO_MAPA = -1
 
 export default class RenderMapa extends Component {
     constructor() {
@@ -23,18 +28,24 @@ export default class RenderMapa extends Component {
                 userName: null,
                 srcPhoto: null
             },
-            ehBrowser: false
+            ehBrowser: false,
+            tipoDeVisaoMapa: VISAO_RETRO_DO_MAPA
         }
         this.options = {
             key: apiKey
         }
-        this.addMarcadorNoBancoSoa = addMarcadorNoBancoSoa;
+
+        this.styleMapRetro = styleMapRetro
+        this.styleMapNight = styleMapNight
         this.map = null;
+        this.addMarcadorNoBancoSoa = addMarcadorNoBancoSoa;
         this.criaMarcadoresNoMapa = this.criaMarcadoresNoMapa.bind(this)
         this.addMarcadorNoBanco = this.addMarcadorNoBanco.bind(this)
         this.pegaLocalizacaoDoUsuario = this.pegaLocalizacaoDoUsuario.bind(this)
         this.togglePopup = this.togglePopup.bind(this)
         this.updateDimensions = this.updateDimensions.bind(this)
+        this.toggleVisaoMapa = this.toggleVisaoMapa.bind(this)
+        this.setTipoVisaoMapa = this.setTipoVisaoMapa.bind(this)
     }
     updateDimensions() {
         const ehBrowser = window.innerWidth > 584
@@ -66,6 +77,7 @@ export default class RenderMapa extends Component {
                 zoomControlOptions: {
                     position: googleMaps.ControlPosition.RIGHT_CENTER
                 },
+                styles: styleMapRetro
             })
         }).catch(function (error) {
             console.error(error)
@@ -143,10 +155,23 @@ export default class RenderMapa extends Component {
             </div>
         )
     }
+    toggleVisaoMapa() {
+        this.setState({ tipoDeVisaoMapa: - this.state.tipoDeVisaoMapa });
+        this.setTipoVisaoMapa(- this.state.tipoDeVisaoMapa)
+    }
+    setTipoVisaoMapa = (tipoDeVisaoMapa) => {
+        const self = this
+        const novoTipoVisaoMapa = tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ? this.styleMapRetro : this.styleMapNight
+        loadGoogleMapsApi(this.options).then(function (googleMaps) {
+            const styledMapType = new googleMaps.StyledMapType(novoTipoVisaoMapa)
+            self.map.mapTypes.set('styled_map', styledMapType);
+            self.map.setMapTypeId('styled_map');
+        })
+    }
     render() {
         return (
             <div id='container'>
-                { this.state.ehBrowser && this.componentForBrowser() }
+                {this.state.ehBrowser && this.componentForBrowser()}
                 <div id='titleMobile'>Quer Lutre na sua cidade?</div>
                 <div id='divAddMarcadorNoBancoBtnMobile'>
                     <Button variant="contained"
@@ -155,6 +180,11 @@ export default class RenderMapa extends Component {
                         onClick={this.addMarcadorNoBanco}>
                         Eu quero
                 </Button>
+                </div>
+                <div onClick={this.toggleVisaoMapa} id='toggleVisaoMapa'>
+                    {this.state.tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ?
+                        <i id='iconVisaoNoturna' class="fas fa-eye"></i> :
+                        <i id='iconVisaoRetro' class="far fa-eye"></i>}
                 </div>
                 <div id='map'></div>
                 {this.state.popup.showPopup ?
