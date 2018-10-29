@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense } from 'react'
 import Button from '@material-ui/core/Button'
 import firebase from 'firebase'
 import loadGoogleMapsApi from 'load-google-maps-api'
 import apiKey from './index'
 import './Mapa.css'
 import addMarcadorNoBancoSoa from './soa'
-import Popup from './Popup'
 import authWithGoogle from '../auth/withGoogle'
 import styleMapRetro from './styleMapRetro'
 import styleMapNight from './styleMapNight'
 
 const VISAO_RETRO_DO_MAPA = 1
-const VISAO_NOTURNA_DO_MAPA = -1
+// const VISAO_NOTURNA_DO_MAPA = -1
+
+const Popup = React.lazy(() => import('./Popup'))
 
 export default class RenderMapa extends Component {
     constructor() {
@@ -156,8 +157,9 @@ export default class RenderMapa extends Component {
         )
     }
     toggleVisaoMapa() {
-        this.setState({ tipoDeVisaoMapa: - this.state.tipoDeVisaoMapa });
-        this.setTipoVisaoMapa(- this.state.tipoDeVisaoMapa)
+        const tipoDeVisaoMapaAtual = -this.state.tipoDeVisaoMapa 
+        this.setState({ tipoDeVisaoMapa: tipoDeVisaoMapaAtual});
+        this.setTipoVisaoMapa(tipoDeVisaoMapaAtual)
     }
     setTipoVisaoMapa = (tipoDeVisaoMapa) => {
         const self = this
@@ -183,15 +185,17 @@ export default class RenderMapa extends Component {
                 </div>
                 <div onClick={this.toggleVisaoMapa} id='toggleVisaoMapa'>
                     {this.state.tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ?
-                        <i id='iconVisaoNoturna' class="fas fa-eye"></i> :
-                        <i id='iconVisaoRetro' class="far fa-eye"></i>}
+                        <i id='iconVisaoNoturna' className="fas fa-eye"></i> :
+                        <i id='iconVisaoRetro' className="far fa-eye"></i>}
                 </div>
                 <div id='map'></div>
                 {this.state.popup.showPopup ?
-                    <Popup
-                        userName={this.state.popup.userName}
-                        srcPhoto={this.state.popup.srcPhoto}
-                        closePopup={this.togglePopup.bind(this)} />
+                    <Suspense fallback={<div></div>}>
+                        <Popup
+                            userName={this.state.popup.userName}
+                            srcPhoto={this.state.popup.srcPhoto}
+                            closePopup={this.togglePopup.bind(this)} />
+                    </Suspense>
                     : null
                 }
             </div>
