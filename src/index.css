@@ -16,6 +16,6 @@ code {
 #incioComponent .fp-bg {
   background-image: url("./components/cardPrincipal/capa.jpg");
   filter: invert(15%);
-  background-position: center 80%;
+  background-position: center;
   background-size: cover;
 }

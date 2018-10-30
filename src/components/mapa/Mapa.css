@@ -105,7 +105,7 @@
     #addMarcadorNoBancoBtnMobile {
         display: flex;
         width: 170px;
-        position: fixed;
+        position: absolute;
         bottom: 0;
         margin-bottom: 7vmin;
         z-index: 1;

@@ -5,31 +5,26 @@
   text-align: center;
 }
 
-.globo {
-  font-size: 1.7em;
-}
 .App-header {
   background-color: #4c0b12;
   min-height: 100vh;
   display: flex;
+  flex-direction: row; 
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  flex-direction: row; 
 }
 
-#languagePick h5 {
-  transition: 0.5s;
-  margin: 10px;
-}
-
-#languagePick > h5:hover {
-  cursor: pointer;
-  color: slategray;
+.globo {
+  /* display: none; */
+  order: 0;
+  font-size: 1.7em;
+  position: absolute;
 }
 
 #languagePick {
+  order: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,6 +35,17 @@
   align-self: flex-start;
   margin-top: 5vmin;
 }
+
+#languagePick div {
+  transition: 0.5s;
+  margin: 10px;
+}
+
+#languagePick > div:hover {
+  cursor: pointer;
+  color: slategray;
+}
+
 
 .fa-globe-americas {
   align-self: flex-start;
