@@ -35,8 +35,8 @@ class Albuns extends React.Component {
                 <div className='slide'>
                     <img alt="APEGO" className='capas' id='capaApego' src={capaApego}></img>
                     <div id='iconesRedesSociais'>
-                        <i onClick={this.abreLink} className="fab fa-spotify"></i>
-                        <i onClick={this.abreLink} className="fab fa-youtube"></i>
+                        <i onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
+                        <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
                     </div>
                 </div>
                 <div className='slide'>
