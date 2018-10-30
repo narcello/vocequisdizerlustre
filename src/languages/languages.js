@@ -8,6 +8,9 @@ export const cardPrincipal = {
     es: {
         title: 'Querías decir: '
     },
+    it: {
+        title: 'Intendevi: '
+    },
 }
 
 export const bio = {
@@ -20,12 +23,15 @@ export const bio = {
     es: {
         title: '"Un plano distópico y gris lleno de monstruos apáticos"'
     },
+    it: {
+        title: '"Un piano distopico grigio pieno di mostri apatici"'
+    }
 }
 
 export const mapa = {
     pt: {
         parteSemMapa: {
-            title: 'Quer lutre na sua cidade?',
+            title: 'Quer Lutre na sua cidade?',
             textBtn: 'Eu quero'
         }
     },
@@ -41,12 +47,18 @@ export const mapa = {
             textBtn: 'Yo quiero'
         }
     },
+    it: {
+        parteSemMapa: {
+            title: 'Vuoi Lutre nella tua città?',
+            textBtn: 'Io voglio'
+        }
+    }
 }
 
 export const popup = {
     pt: {
         title: 'Obrigado',
-        note: 'Quando marcamos show ai, avisaremos no seu email :)'
+        note: 'Quando marcarmos show ai, avisaremos no seu email :)'
     },
     us: {
         title: 'Thanks',
@@ -55,6 +67,10 @@ export const popup = {
     es: {
         title: 'Gracias',
         note: 'Cuando marcamos show ahí, avisaremos en su email :)'
+    },
+    it: {
+        title: 'Grazie',
+        note: 'Quando facciamo uno spettacolo lì, ti faremo sapere nella tua email :)'
     },
 }
 export const albuns = {}
