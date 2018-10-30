@@ -1,15 +1,23 @@
 import React from 'react'
 import './Bio.css'
+import { bio } from '../../languages/languages'
+import { Context } from '../../languages/ProviderLang'
 
 class Bio extends React.Component {
     render() {
         return (
-            <div id='bioSection'>
-                <div id='bioText'>
-                    “Um plano distópico e cinzento cheio de monstros apáticos”
-            </div>
-                <div id='autor'>Leon Carelli</div>
-            </div>
+            <Context.Consumer>
+                {(context) => (
+                    <React.Fragment>
+                        <div id='bioSection'>
+                            <div id='bioText'>
+                                {bio[context.lang].title}
+                            </div>
+                            <div id='autor'>Leon Carelli</div>
+                        </div>
+                    </React.Fragment>
+                )}
+            </Context.Consumer>
         )
 
     }

@@ -5,9 +5,12 @@ import loadGoogleMapsApi from 'load-google-maps-api'
 import apiKey from './index'
 import './Mapa.css'
 import addMarcadorNoBancoSoa from './soa'
-import authWithGoogle from '../auth/withGoogle'
+import authWithGoogle from '../../auth/withGoogle'
 import styleMapRetro from './styleMapRetro'
 import styleMapNight from './styleMapNight'
+
+import { mapa } from '../../languages/languages'
+import { Context } from '../../languages/ProviderLang'
 
 const VISAO_RETRO_DO_MAPA = 1
 // const VISAO_NOTURNA_DO_MAPA = -1
@@ -143,22 +146,22 @@ export default class RenderMapa extends Component {
             }
         });
     }
-    componentForBrowser = () => {
+    componentForBrowser = (lang) => {
         return (
             <div id='parteSemMapa'>
-                <div id='title'>Quer Lutre na sua cidade?</div>
+                <div id='title'>{mapa[lang].parteSemMapa.title}</div>
                 <Button variant="contained"
                     color="primary"
                     id='addMarcadorNoBancoBtn'
                     onClick={this.addMarcadorNoBanco}>
-                    Eu quero
+                    {mapa[lang].parteSemMapa.textBtn}
                         </Button>
             </div>
         )
     }
     toggleVisaoMapa() {
-        const tipoDeVisaoMapaAtual = -this.state.tipoDeVisaoMapa 
-        this.setState({ tipoDeVisaoMapa: tipoDeVisaoMapaAtual});
+        const tipoDeVisaoMapaAtual = -this.state.tipoDeVisaoMapa
+        this.setState({ tipoDeVisaoMapa: tipoDeVisaoMapaAtual });
         this.setTipoVisaoMapa(tipoDeVisaoMapaAtual)
     }
     setTipoVisaoMapa = (tipoDeVisaoMapa) => {
@@ -172,33 +175,38 @@ export default class RenderMapa extends Component {
     }
     render() {
         return (
-            <div id='container'>
-                {this.state.ehBrowser && this.componentForBrowser()}
-                <div id='titleMobile'>Quer Lutre na sua cidade?</div>
-                <div id='divAddMarcadorNoBancoBtnMobile'>
-                    <Button variant="contained"
-                        color="primary"
-                        id='addMarcadorNoBancoBtnMobile'
-                        onClick={this.addMarcadorNoBanco}>
-                        Eu quero
-                </Button>
-                </div>
-                <div onClick={this.toggleVisaoMapa} id='toggleVisaoMapa'>
-                    {this.state.tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ?
-                        <i id='iconVisaoNoturna' className="fas fa-eye"></i> :
-                        <i id='iconVisaoRetro' className="far fa-eye"></i>}
-                </div>
-                <div id='map'></div>
-                {this.state.popup.showPopup ?
-                    <Suspense fallback={<div></div>}>
-                        <Popup
-                            userName={this.state.popup.userName}
-                            srcPhoto={this.state.popup.srcPhoto}
-                            closePopup={this.togglePopup.bind(this)} />
-                    </Suspense>
-                    : null
-                }
-            </div>
+            <Context.Consumer>
+                {(context) => (
+                    <React.Fragment>
+                        <div id='container'>
+                            {this.state.ehBrowser && this.componentForBrowser(context.lang)}
+                            <div id='titleMobile'>{mapa[context.lang].parteSemMapa.title}</div>
+                            <div id='divAddMarcadorNoBancoBtnMobile'>
+                                <Button variant="contained"
+                                    color="primary"
+                                    id='addMarcadorNoBancoBtnMobile'
+                                    onClick={this.addMarcadorNoBanco}>
+                                    {mapa[context.lang].parteSemMapa.textBtn}
+                                </Button>
+                            </div>
+                            <div onClick={this.toggleVisaoMapa} id='toggleVisaoMapa'>
+                                {this.state.tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ?
+                                    <i id='iconVisaoNoturna' className="fas fa-eye"></i> :
+                                    <i id='iconVisaoRetro' className="far fa-eye"></i>}
+                            </div>
+                            <div id='map'></div>
+                            {this.state.popup.showPopup ?
+                                <Suspense fallback={<div></div>}>
+                                    <Popup
+                                        userName={this.state.popup.userName}
+                                        srcPhoto={this.state.popup.srcPhoto}
+                                        closePopup={this.togglePopup.bind(this)} />
+                                </Suspense>
+                                : null
+                            }
+                        </div>
+                    </React.Fragment>)}
+            </Context.Consumer>
         )
     }
 }

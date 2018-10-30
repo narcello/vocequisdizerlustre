@@ -13,13 +13,40 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  flex-direction: row; 
 }
 
-/* .parallax {
-  background-image: url("./capa.jpg");
-  height: 500px; 
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
+#languagePick h5 {
+  margin-right: 1vmin;
+  transition: 1s;
+}
+
+#languagePick > h5:hover {
+  cursor: pointer;
+  color: slategray;
+}
+
+#languagePick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition-duration: 2s;
+  position: fixed;
+  align-self: flex-start;
+  margin-top: 5vmin;
+}
+
+.fa-globe-americas {
+  align-self: flex-start;
+  position: fixed;
+  margin: 5vmin 7vmin 0 0;
+}
+
+.fa-globe-americas:hover + #languagePick {
+  opacity: 1;
+}
+
+#languagePick:hover {
+  opacity: 1;
+}

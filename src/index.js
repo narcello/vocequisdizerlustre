@@ -12,6 +12,8 @@ import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
 import Mapa from './components/mapa/Mapa';
 
+import { Provider } from './languages/ProviderLang'
+
 firebase.initializeApp(configFirebase);
 
 let fpapi = null
@@ -36,8 +38,6 @@ const isMobile = () => {
 }
 
 class Fullpage extends React.Component {
-
-
     render() {
         return (
             <ReactFullpage
@@ -46,10 +46,12 @@ class Fullpage extends React.Component {
                     fpapi = fullpageApi
                     return (
                         <ReactFullpage.Wrapper>
-                            <div className='section' id='incioComponent'><Inicio /></div>
-                            <div className='section' id='bioComponent'><Bio /></div>
-                            <div className='section' id='albunsComponent'><Albuns /></div>
-                            <div className='section' id='mapaComponent'><Mapa /></div>
+                            <Provider>
+                                <div className='section' id='incioComponent'><Inicio /></div>
+                                <div className='section' id='bioComponent'><Bio /></div>
+                                <div className='section' id='albunsComponent'><Albuns /></div>
+                                <div className='section' id='mapaComponent'><Mapa /></div>
+                            </Provider>
                         </ReactFullpage.Wrapper>
                     );
                 }}
