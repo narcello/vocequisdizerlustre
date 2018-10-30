@@ -18,16 +18,16 @@ class Inicio extends Component {
               <i className="fas fa-globe-americas globo"></i>
               <div id='languagePick'>
                 <h5 onClick={() => context.setCurrentLang('pt')}>
-                  <img className="bandeiras bandeiraBrasil" src={bdbr}/>
+                  <img alt='flag' className="bandeiras bandeiraBrasil" src={bdbr}/>
                 </h5>
                 <h5 onClick={() => context.setCurrentLang('us')}>
-                  <img className="bandeiras bandeiraUSA" src={bdusa}/>
+                  <img alt='flag' className="bandeiras bandeiraUSA" src={bdusa}/>
                 </h5>
                 <h5 onClick={() => context.setCurrentLang('es')}>
-                  <img className="bandeiras bandeiraEspanha" src={bdes}/>
+                  <img alt='flag' className="bandeiras bandeiraEspanha" src={bdes}/>
                 </h5>
                 <h5 onClick={() => context.setCurrentLang('it')}>
-                  <img className="bandeiras bandeiraItalia" src={bdita}/>
+                  <img alt='flag' className="bandeiras bandeiraItalia" src={bdita}/>
                 </h5>
               </div>
               <h2>{cardPrincipal[context.lang].title}<i>lustre</i> ?</h2>

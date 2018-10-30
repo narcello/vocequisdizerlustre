@@ -34,7 +34,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  height: 22%;
+  height: 190px;
   transition-duration: 0.5s;
   position: fixed;
   align-self: flex-start;
