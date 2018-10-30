@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+.globo {
+  font-size: 1.7em;
+}
 .App-header {
   background-color: #4c0b12;
   min-height: 100vh;
@@ -17,8 +20,8 @@
 }
 
 #languagePick h5 {
-  margin-right: 1vmin;
-  transition: 1s;
+  transition: 0.5s;
+  margin: 10px;
 }
 
 #languagePick > h5:hover {
@@ -31,7 +34,8 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition-duration: 2s;
+  height: 22%;
+  transition-duration: 0.5s;
   position: fixed;
   align-self: flex-start;
   margin-top: 5vmin;
@@ -49,4 +53,52 @@
 
 #languagePick:hover {
   opacity: 1;
+}
+
+.btn-social:hover {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0.2;}
+  100% {opacity: 1;}
+}
+
+.bandeiras {
+  transition: all 0.2s;
+}
+
+.bandeiraEspanha {
+  width: 44px;
+}
+
+.bandeiraBrasil{
+  width: 40px;
+} 
+
+.bandeiraUSA{
+  width: 44px;
+}
+
+.bandeiraItalia{
+  width: 44px;
+}
+.bandeiraItalia:hover{
+  width: 50px;
+}
+
+.bandeiraBrasil:hover {
+  width: 44px;
+}
+
+.bandeiraUSA:hover {
+  width: 50px;
+}
+
+.bandeiraEspanha:hover {
+  width: 50px;
 }
