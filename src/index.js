@@ -1,6 +1,6 @@
 import * as serviceWorker from './serviceWorker';
-// import configFirebase from './firebase/index'
-// import firebase from "firebase";
+import configFirebase from './firebase/index'
+import firebase from "firebase";
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,11 +10,11 @@ import './index.css';
 import Inicio from './components/cardPrincipal/App';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-// import Mapa from './components/mapa/Mapa';
+import Mapa from './components/mapa/Mapa';
 
 import { Provider } from './languages/ProviderLang'
 
-// firebase.initializeApp(configFirebase);
+firebase.initializeApp(configFirebase);
 
 let fpapi = null
 const fullpageOptions = {
@@ -50,7 +50,7 @@ class Fullpage extends React.Component {
                                 <div className='section' id='incioComponent'><Inicio /></div>
                                 <div className='section' id='bioComponent'><Bio /></div>
                                 <div className='section' id='albunsComponent'><Albuns /></div>
-                                {/* <div className='section' id='mapaComponent'><Mapa /></div> */}
+                                <div className='section' id='mapaComponent'><Mapa /></div>
                             </Provider>
                         </ReactFullpage.Wrapper>
                     );
