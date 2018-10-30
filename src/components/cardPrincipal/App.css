@@ -55,50 +55,23 @@
   opacity: 1;
 }
 
-.btn-social:hover {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-name: fadeIn;
-  cursor: pointer;
-  transition: all 1s;
-}
-
-@keyframes fadeIn {
-  0% {opacity: 0.2;}
-  100% {opacity: 1;}
-}
-
 .bandeiras {
   transition: all 0.2s;
+  margin: 0 2vmin 0 2vmin;
 }
 
-.bandeiraEspanha {
-  width: 44px;
+.bandeiraEspanha, .bandeiraUSA, .bandeiraItalia {
+  width: 58px;
+}
+
+.bandeiraEspanha:hover, .bandeiraUSA:hover, .bandeiraItalia:hover {
+  width: 64px;
 }
 
 .bandeiraBrasil{
-  width: 40px;
+  width: 54px;
 } 
 
-.bandeiraUSA{
-  width: 44px;
-}
-
-.bandeiraItalia{
-  width: 44px;
-}
-.bandeiraItalia:hover{
-  width: 50px;
-}
-
 .bandeiraBrasil:hover {
-  width: 44px;
-}
-
-.bandeiraUSA:hover {
-  width: 50px;
-}
-
-.bandeiraEspanha:hover {
-  width: 50px;
+  width: 58px;
 }

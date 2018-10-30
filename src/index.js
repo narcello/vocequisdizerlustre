@@ -8,11 +8,11 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import './index.css';
 
 import Inicio from './components/cardPrincipal/App';
+import { Provider } from './languages/ProviderLang'
+
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
 import Mapa from './components/mapa/Mapa';
-
-import { Provider } from './languages/ProviderLang'
 
 firebase.initializeApp(configFirebase);
 
