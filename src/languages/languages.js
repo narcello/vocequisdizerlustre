@@ -43,4 +43,18 @@ export const mapa = {
     },
 }
 
+export const popup = {
+    pt: {
+        title: 'Obrigado',
+        note: 'Quando marcamos show ai, avisaremos no seu email :)'
+    },
+    us: {
+        title: 'Thanks',
+        note: "When we make a show there, we'll let you know in your email :)"
+    },
+    es: {
+        title: 'Gracias',
+        note: 'Cuando marcamos show ahí, avisaremos en su email :)'
+    },
+}
 export const albuns = {}
