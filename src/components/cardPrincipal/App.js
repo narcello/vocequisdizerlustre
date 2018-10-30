@@ -17,6 +17,7 @@ class Inicio extends Component {
                 <h5 onClick={() => context.setCurrentLang('pt')}>PT-BR</h5>
                 <h5 onClick={() => context.setCurrentLang('us')}>US</h5>
                 <h5 onClick={() => context.setCurrentLang('es')}>ES</h5>
+                <h5 onClick={() => context.setCurrentLang('it')}>IT</h5>
               </div>
               <h2>{cardPrincipal[context.lang].title}<i>lustre</i> ?</h2>
             </div>
