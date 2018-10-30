@@ -4,6 +4,7 @@ import { cardPrincipal } from '../../languages/languages'
 import bdbr from './bd-br.png'
 import bdusa from './bd-usa.png'
 import bdes from  './bd-es.png'
+import bdita from  './bd-ita.png'
 
 import { Context } from '../../languages/ProviderLang'
 
@@ -24,6 +25,9 @@ class Inicio extends Component {
                 </h5>
                 <h5 onClick={() => context.setCurrentLang('es')}>
                   <img className="bandeiras bandeiraEspanha" src={bdes}/>
+                </h5>
+                <h5 onClick={() => context.setCurrentLang('it')}>
+                  <img className="bandeiras bandeiraItalia" src={bdita}/>
                 </h5>
               </div>
               <h2>{cardPrincipal[context.lang].title}<i>lustre</i> ?</h2>

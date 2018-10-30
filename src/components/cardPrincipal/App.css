@@ -84,6 +84,13 @@
   width: 44px;
 }
 
+.bandeiraItalia{
+  width: 44px;
+}
+.bandeiraItalia:hover{
+  width: 50px;
+}
+
 .bandeiraBrasil:hover {
   width: 44px;
 }
