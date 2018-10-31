@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Home.css';
 import { cardPrincipal } from '../../languages/languages'
 import bdbr from '../../languages/icons/bd-br.png'
 import bdusa from '../../languages/icons/bd-usa.png'
@@ -8,7 +8,7 @@ import bdita from  '../../languages/icons/bd-ita.png'
 
 import { Context } from '../../languages/ProviderLang'
 
-class Inicio extends Component {
+class Home extends Component {
   render() {
     return (
       <Context.Consumer>
@@ -39,6 +39,6 @@ class Inicio extends Component {
   }
 }
 
-export default Inicio;
+export default Home;
 
 //  

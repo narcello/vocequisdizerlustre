@@ -9,7 +9,7 @@ import './index.css';
 
 import { Provider } from './languages/ProviderLang'
 
-import Inicio from './components/cardPrincipal/App';
+import Home from './components/cardPrincipal/Home';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
 import Mapa from './components/mapa/Mapa';
@@ -47,7 +47,7 @@ class Fullpage extends React.Component {
                     return (
                         <ReactFullpage.Wrapper>
                             <Provider>
-                                <div className='section' id='incioComponent'><Inicio /></div>
+                                <div className='section' id='incioComponent'><Home /></div>
                                 <div className='section' id='bioComponent'><Bio /></div>
                                 <div className='section' id='albunsComponent'><Albuns /></div>
                                 <div className='section' id='mapaComponent'><Mapa /></div>
