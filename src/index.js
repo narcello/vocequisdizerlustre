@@ -9,7 +9,7 @@ import './index.css';
 
 import { Provider } from './languages/ProviderLang'
 
-import Home from './components/cardPrincipal/Home';
+import Home from './components/home/Home';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
 import Mapa from './components/mapa/Mapa';
