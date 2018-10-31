@@ -1,7 +1,7 @@
 {
   "main.css": "/vocequisdizerlustre/static/css/main.57c49acb.chunk.css",
-  "main.js": "/vocequisdizerlustre/static/js/main.c86d8bbd.chunk.js",
-  "main.js.map": "/vocequisdizerlustre/static/js/main.c86d8bbd.chunk.js.map",
+  "main.js": "/vocequisdizerlustre/static/js/main.d12663c5.chunk.js",
+  "main.js.map": "/vocequisdizerlustre/static/js/main.d12663c5.chunk.js.map",
   "static/css/1.132143fc.chunk.css": "/vocequisdizerlustre/static/css/1.132143fc.chunk.css",
   "static/js/1.332a4b12.chunk.js": "/vocequisdizerlustre/static/js/1.332a4b12.chunk.js",
   "static/js/1.332a4b12.chunk.js.map": "/vocequisdizerlustre/static/js/1.332a4b12.chunk.js.map",
@@ -22,6 +22,6 @@
   "static/css/main.57c49acb.chunk.css.map": "/vocequisdizerlustre/static/css/main.57c49acb.chunk.css.map",
   "static/css/1.132143fc.chunk.css.map": "/vocequisdizerlustre/static/css/1.132143fc.chunk.css.map",
   "index.html": "/vocequisdizerlustre/index.html",
-  "precache-manifest.ab9573e9aca134e0e137e9d4cb29f06b.js": "/vocequisdizerlustre/precache-manifest.ab9573e9aca134e0e137e9d4cb29f06b.js",
+  "precache-manifest.747a50320795fa1aecfad5c8a61c69d5.js": "/vocequisdizerlustre/precache-manifest.747a50320795fa1aecfad5c8a61c69d5.js",
   "service-worker.js": "/vocequisdizerlustre/service-worker.js"
 }

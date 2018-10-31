@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/vocequisdizerlustre/static/media/bd-usa.eb060031.png"
   },
   {
-    "revision": "c86d8bbdec321fe07b2f",
+    "revision": "d12663c5b531fdf94a63",
     "url": "/vocequisdizerlustre/static/css/main.57c49acb.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/vocequisdizerlustre/static/media/bd-br.7b84bea8.png"
   },
   {
-    "revision": "c86d8bbdec321fe07b2f",
-    "url": "/vocequisdizerlustre/static/js/main.c86d8bbd.chunk.js"
+    "revision": "d12663c5b531fdf94a63",
+    "url": "/vocequisdizerlustre/static/js/main.d12663c5.chunk.js"
   },
   {
     "revision": "9eb97208df5554e9d1d5dba1455e06d3",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/vocequisdizerlustre/static/css/1.132143fc.chunk.css"
   },
   {
-    "revision": "c00ddf8a616178d76b6c36801e8ab720",
+    "revision": "f4f07fab7903c76d91510c4140a8a0bf",
     "url": "/vocequisdizerlustre/index.html"
   }
 ];
