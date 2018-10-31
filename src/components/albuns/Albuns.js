@@ -43,7 +43,7 @@ class Albuns extends React.Component {
                     <img alt="CCUFG" className='capas' id='capaCcufg' src={capaCcufg}></img>
                     <div id='iconesRedesSociais'>
                         <i title='Álbum completo' onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
-                        <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube"></i>
+                        <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
                     </div>
                 </div>
                 <div className='slide'>
