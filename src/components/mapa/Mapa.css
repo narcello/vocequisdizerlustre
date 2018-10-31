@@ -13,6 +13,7 @@
     height: 100%;
     width: 100%;
     float: right;
+    position: absolute !important;
 	-webkit-overflow-scrolling: auto;
 }
 
@@ -24,6 +25,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 #title {
@@ -67,7 +70,7 @@
     display: none;
 }
 
-@media (max-width: 584px) {
+@media (max-width: 584px), (max-height: 584px) {
     #container {
         height: 100%;
     }
