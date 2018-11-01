@@ -1,6 +1,6 @@
 import * as serviceWorker from './serviceWorker';
-import configFirebase from './firebase/index'
-import firebase from "firebase";
+// import configFirebase from './firebase/index'
+// import firebase from "firebase";
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,9 +12,9 @@ import { Provider } from './languages/ProviderLang'
 import Home from './components/home/Home';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-import Mapa from './components/mapa/Mapa';
+// import Mapa from './components/mapa/Mapa';
 
-firebase.initializeApp(configFirebase);
+// firebase.initializeApp(configFirebase);
 
 let fpapi = null
 const fullpageOptions = {
@@ -37,30 +37,61 @@ const isMobile = () => {
         document.body.clientWidth) < 583
 }
 
-class Fullpage extends React.Component {
+class Site extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            ehBrowser: false
+        }
+        this.updateDimensions = this.updateDimensions.bind(this)
+    }
+    updateDimensions() {
+        const ehBrowser = !isMobile()
+        this.setState({ ehBrowser })
+    }
+    componentWillMount(){
+        this.updateDimensions()
+    }
+    componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
+    }
     render() {
         return (
-            <ReactFullpage
-                {...fullpageOptions}
-                render={({ state, fullpageApi }) => {
-                    fpapi = fullpageApi
-                    return (
-                        <ReactFullpage.Wrapper>
-                            <Provider>
-                                <div className='section' id='incioComponent'><Home /></div>
-                                <div className='section' id='bioComponent'><Bio /></div>
-                                <div className='section' id='albunsComponent'><Albuns /></div>
-                                <div className='section' id='mapaComponent'><Mapa /></div>
-                            </Provider>
-                        </ReactFullpage.Wrapper>
-                    );
-                }}
-            />
+            <div>
+                {this.state.ehBrowser ?
+                    <ReactFullpage
+                        {...fullpageOptions}
+                        render={({ state, fullpageApi }) => {
+                            fpapi = fullpageApi
+                            return (
+                                <ReactFullpage.Wrapper>
+                                    {Sections()}
+                                </ReactFullpage.Wrapper>
+                            );
+                        }}
+                    /> :
+                    Sections()
+                }
+            </div>
         )
     }
 }
 
-ReactDOM.render(<Fullpage />, document.getElementById('root'));
+const Sections = () => {
+    return (
+        <Provider>
+            <div className='section' id='incioComponent'><Home /></div>
+            <div className='section' id='bioComponent'><Bio /></div>
+            <div className='section' id='albunsComponent'><Albuns /></div>
+            {/* <div className='section' id='mapaComponent'><Mapa /></div> */}
+        </Provider>
+    )
+}
+
+ReactDOM.render(<Site />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
