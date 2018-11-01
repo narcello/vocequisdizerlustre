@@ -49,7 +49,7 @@ class Site extends React.Component {
         const ehBrowser = !isMobile()
         this.setState({ ehBrowser })
     }
-    componentWillMount(){
+    componentWillMount() {
         this.updateDimensions()
     }
     componentDidMount() {
@@ -61,33 +61,46 @@ class Site extends React.Component {
     render() {
         return (
             <div>
-                {this.state.ehBrowser ?
-                    <ReactFullpage
-                        {...fullpageOptions}
-                        render={({ state, fullpageApi }) => {
-                            fpapi = fullpageApi
-                            return (
-                                <ReactFullpage.Wrapper>
-                                    {Sections()}
-                                </ReactFullpage.Wrapper>
-                            );
-                        }}
-                    /> :
-                    Sections()
+                {
+                    this.state.ehBrowser ?
+                    ComponentForBrowser() :
+                    ComponentForMobile()
                 }
             </div>
         )
     }
 }
 
-const Sections = () => {
+const ComponentForMobile = () => {
     return (
         <Provider>
-            <div className='section' id='incioComponent'><Home /></div>
-            <div className='section' id='bioComponent'><Bio /></div>
-            <div className='section' id='albunsComponent'><Albuns /></div>
+            <div className='sectionMobile' id='incioComponent'><Home /></div>
+            <div className='sectionMobile' id='bioComponent'><Bio /></div>
+            {/* <div className='section' id='albunsComponent'><Albuns /></div> */}
             {/* <div className='section' id='mapaComponent'><Mapa /></div> */}
         </Provider>
+    )
+}
+
+const ComponentForBrowser = () => {
+    return (
+        <ReactFullpage
+            {...fullpageOptions}
+            render={({ state, fullpageApi }) => {
+                fpapi = fullpageApi
+                return (
+                    <ReactFullpage.Wrapper>
+                        <Provider>
+                            <div className='section' id='incioComponent'><Home /></div>
+                            <div className='section' id='bioComponent'><Bio /></div>
+                            <div className='section' id='albunsComponent'><Albuns /></div>
+                            {/* <div className='section' id='mapaComponent'><Mapa /></div> */}
+                        </Provider>
+                    </ReactFullpage.Wrapper>
+                );
+            }}
+        />
+
     )
 }
 
