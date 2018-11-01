@@ -10,7 +10,7 @@ import styleMapRetro from './styleMapRetro'
 import styleMapNight from './styleMapNight'
 
 import { mapa } from '../../languages/languages'
-import { Context } from '../../languages/Provider'
+import { Context } from '../../providers/Provider'
 
 const VISAO_RETRO_DO_MAPA = 1
 // const VISAO_NOTURNA_DO_MAPA = -1

@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import './Popup.css'
 import { popup } from '../../languages/languages'
-import { Context } from '../../languages/Provider'
+import { Context } from '../../providers/Provider'
 
 export default class Popup extends React.Component {
   render() {

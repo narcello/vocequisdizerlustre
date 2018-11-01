@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Context } from '../../languages/Provider'
+import { Context } from '../../providers/Provider'
 
 import capaCcufg from './aoVivoCCUFG_cortada.jpg'
 import capaApego from './capaApego.jpg'

@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import './index.css';
 
-import { Provider, MIN_SIZE_DESKTOP } from './languages/Provider'
+import { Provider, MIN_SIZE_DESKTOP } from './providers/Provider'
 
 import Home from './components/home/Home';
 import Bio from './components/bio/Bio';
