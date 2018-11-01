@@ -31,6 +31,46 @@ class Albuns extends React.Component {
         debugger
         window.open(URLS[url], '_blank');
     }
+    AlbunsForDesktop = () => {
+        return <div className='albunsCapas'>
+            <div className='slide'>
+                <img alt="APEGO" className='capas' id='capaApego' src={capaApego}></img>
+                <div id='iconesRedesSociais'>
+                    <i onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
+                    <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
+                </div>
+            </div>
+            <div className='slide'>
+                <img alt="CCUFG" className='capas' id='capaCcufg' src={capaCcufg}></img>
+                <div id='iconesRedesSociais'>
+                    <i title='Álbum completo' onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
+                    <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
+                </div>
+            </div>
+            <div className='slide'>
+                <img alt="EP" className='capas' id='capaEp' src={capaEp}></img>
+                <div id='iconesRedesSociais'>
+                    <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
+                </div>
+            </div>
+        </div>;
+    }
+    
+    AlbunsForMobile = () => {
+        return (
+            <div className='mobile'>
+                <div id='capaApego' className='slideMobile'>
+                    <img alt="APEGO" className='capas' src={capaApego}></img>
+                </div>
+                <div id='capaCcufg' className='slideMobile'>
+                    <img alt="CCUFG" className='capas' src={capaCcufg}></img>
+                </div>
+                <div id='capaEp' className='slideMobile'>
+                    <img alt="EP" className='capas' src={capaEp}></img>
+                </div>
+            </div>
+        )
+    }
     render() {
         return (
             <Context.Consumer>
@@ -38,8 +78,8 @@ class Albuns extends React.Component {
                     <React.Fragment>
                         {
                             context.ehBrowser ?
-                                AlbunsForDesktop() :
-                                AlbunsForMobile()
+                                this.AlbunsForDesktop() :
+                                this.AlbunsForMobile()
                         }
                     </React.Fragment>
                 )}
@@ -50,43 +90,3 @@ class Albuns extends React.Component {
 
 export default Albuns
 
-const AlbunsForDesktop = () => {
-    return <div className='albunsCapas'>
-        <div className='slide'>
-            <img alt="APEGO" className='capas' id='capaApego' src={capaApego}></img>
-            <div id='iconesRedesSociais'>
-                <i onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
-                <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
-            </div>
-        </div>
-        <div className='slide'>
-            <img alt="CCUFG" className='capas' id='capaCcufg' src={capaCcufg}></img>
-            <div id='iconesRedesSociais'>
-                <i title='Álbum completo' onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
-                <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
-            </div>
-        </div>
-        <div className='slide'>
-            <img alt="EP" className='capas' id='capaEp' src={capaEp}></img>
-            <div id='iconesRedesSociais'>
-                <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
-            </div>
-        </div>
-    </div>;
-}
-
-const AlbunsForMobile = () => {
-    return (
-        <div className='mobile'>
-            <div id='capaApego' className='slideMobile'>
-                <img alt="APEGO" className='capas' src={capaApego}></img>
-            </div>
-            <div id='capaCcufg' className='slideMobile'>
-                <img alt="CCUFG" className='capas' src={capaCcufg}></img>
-            </div>
-            <div id='capaEp' className='slideMobile'>
-                <img alt="EP" className='capas' src={capaEp}></img>
-            </div>
-        </div>
-    )
-}
