@@ -1,11 +1,17 @@
-## Lutre's [Web Site](https://lutre.com.br/)
+# Lutre's [Web Site](https://lutre.com.br/)
 
 Site da Lutre feito com:
 * [Reactjs](https://reactjs.org/)
 * [Fullpage](https://alvarotrigo.com/fullPage/)
 
-Caso você queira contribuir com o projeto, você deve fazer o fork e comentar no index.js as linhas: 
+## Contribuições
 
+Caso você queira contribuir com o projeto faça o seguinte:
+* Você deve fazer o fork
+
+* npm install dentro do projeto
+
+* Comente as linhas a seguir:
 ```javascript
 import * as serviceWorker from './serviceWorker';
 // import configFirebase from './firebase/index'
@@ -26,7 +32,13 @@ import Albuns from './components/albuns/Albuns';
 // firebase.initializeApp(configFirebase);
 ```
 
-E remover: 
+* Remova: 
 ```javascript
 <div className='section' id='mapaComponent'><Mapa /></div>
 ```
+
+* Run
+```bash
+npm start
+```
+* Depois que tiver modificado, me faça um pull-request.
