@@ -1,7 +1,7 @@
 import React from 'react'
 import './Bio.css'
 import { bio } from '../../languages/languages'
-import { Context } from '../../languages/ProviderLang'
+import { Context } from '../../languages/Provider'
 
 class Bio extends React.Component {
     render() {

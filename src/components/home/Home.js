@@ -6,7 +6,7 @@ import bdusa from '../../languages/icons/bd-usa.png'
 import bdes from  '../../languages/icons/bd-es.png'
 import bdita from  '../../languages/icons/bd-ita.png'
 
-import { Context } from '../../languages/ProviderLang'
+import { Context } from '../../languages/Provider'
 
 class Home extends Component {
   render() {
