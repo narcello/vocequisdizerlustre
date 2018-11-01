@@ -14,7 +14,15 @@ code {
 }
 
 .sectionMobile {
-  min-height: 100vh;
+  min-height: 91vh;
   display: flex;
   justify-content: center;
+}
+
+.sectionMobile #container, .sectionMobile #container #titleMobile {
+  position: absolute;
+}
+
+#bioComponent {
+  background-color: antiquewhite
 }

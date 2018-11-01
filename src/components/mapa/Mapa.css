@@ -70,7 +70,7 @@
     display: none;
 }
 
-@media (max-width: 584px), (max-height: 584px) {
+@media (max-width: 584px) {
     #container {
         height: 100%;
     }

@@ -39,3 +39,32 @@
     0% {opacity: 0.2;}
     100% {opacity: 1;}
   }
+
+.mobile {
+    width: 100%;
+    background-color: rgba(63, 81, 181, 0.5);
+}
+
+.slideMobile {
+    transform: rotate3d(6, 25, 0, 46deg);
+    position: absolute;
+    box-shadow: -4px -4px 2px 2px antiquewhite;
+}
+
+.mobile #capaApego {
+    z-index: 3;
+    right: 7vmin;
+    margin-top: 26vmin;
+}
+
+.mobile #capaCcufg {
+    z-index: 2;
+    right: 20vmin;
+    margin-top: 19vmin;
+}
+
+.mobile #capaEp {
+    z-index: 1;
+    right: 33vmin;
+    margin-top: 12vmin;
+}

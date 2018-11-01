@@ -1,20 +1,20 @@
 import * as serviceWorker from './serviceWorker';
-// import configFirebase from './firebase/index'
-// import firebase from "firebase";
+import configFirebase from './firebase/index'
+import firebase from "firebase";
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import './index.css';
 
-import { Provider } from './languages/ProviderLang'
+import { Provider, MIN_SIZE_DESKTOP } from './languages/ProviderLang'
 
 import Home from './components/home/Home';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
-// import Mapa from './components/mapa/Mapa';
+import Mapa from './components/mapa/Mapa';
 
-// firebase.initializeApp(configFirebase);
+firebase.initializeApp(configFirebase);
 
 let fpapi = null
 const fullpageOptions = {
@@ -34,7 +34,7 @@ const fullpageOptions = {
 const isMobile = () => {
     return (window.innerWidth ||
         document.documentElement.clientWidth ||
-        document.body.clientWidth) < 583
+        document.body.clientWidth) < MIN_SIZE_DESKTOP
 }
 
 class Site extends React.Component {
@@ -76,8 +76,8 @@ const ComponentForMobile = () => {
         <Provider>
             <div className='sectionMobile' id='incioComponent'><Home /></div>
             <div className='sectionMobile' id='bioComponent'><Bio /></div>
-            {/* <div className='section' id='albunsComponent'><Albuns /></div> */}
-            {/* <div className='section' id='mapaComponent'><Mapa /></div> */}
+            <div className='sectionMobile' id='albunsComponent'><Albuns /></div>
+            <div className='sectionMobile' id='mapaComponent'><Mapa /></div> 
         </Provider>
     )
 }
@@ -94,7 +94,7 @@ const ComponentForBrowser = () => {
                             <div className='section' id='incioComponent'><Home /></div>
                             <div className='section' id='bioComponent'><Bio /></div>
                             <div className='section' id='albunsComponent'><Albuns /></div>
-                            {/* <div className='section' id='mapaComponent'><Mapa /></div> */}
+                            <div className='section' id='mapaComponent'><Mapa /></div>
                         </Provider>
                     </ReactFullpage.Wrapper>
                 );
