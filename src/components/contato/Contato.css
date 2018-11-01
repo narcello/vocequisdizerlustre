@@ -1,0 +1,92 @@
+#contatoSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.divIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#fb {
+    background: linear-gradient(-45deg, #4267b2, #7197e4, #0a2763, #022770);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 4s ease infinite;
+	-moz-animation: Gradient 4s ease infinite;
+	animation: Gradient 4s ease infinite;
+} 
+
+#ig {
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, rgb(204, 151, 37), rgb(35, 76, 213));
+	background-size: 600% 600%;
+	-webkit-animation: Gradient 4s ease infinite;
+	-moz-animation: Gradient 4s ease infinite;
+	animation: Gradient 4s ease infinite;
+}
+
+#sp {
+    background: linear-gradient(-45deg, #1e7d15, #a0ee9b, #3aa779, #42e084);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 4s ease infinite;
+	-moz-animation: Gradient 4s ease infinite;
+	animation: Gradient 4s ease infinite;
+}
+
+#yt {
+    background: linear-gradient(-45deg, #e77777, #b14444, #bb4b4b, #dc133f);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 4s ease infinite;
+	-moz-animation: Gradient 4s ease infinite;
+	animation: Gradient 4s ease infinite;
+} 
+
+#gh {
+    background-color: #536577;
+    background: linear-gradient(-45deg, #536577, #78a7d6, #294f75, #1174d6);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 4s ease infinite;
+	-moz-animation: Gradient 4s ease infinite;
+	animation: Gradient 4s ease infinite;
+}
+
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}

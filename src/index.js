@@ -13,6 +13,7 @@ import Home from './components/home/Home';
 import Bio from './components/bio/Bio';
 import Albuns from './components/albuns/Albuns';
 import Mapa from './components/mapa/Mapa';
+import Contato from './components/contato/Contato';
 
 firebase.initializeApp(configFirebase);
 
@@ -63,8 +64,8 @@ class Site extends React.Component {
             <div>
                 {
                     this.state.ehBrowser ?
-                    ComponentForBrowser() :
-                    ComponentForMobile()
+                        ComponentForBrowser() :
+                        ComponentForMobile()
                 }
             </div>
         )
@@ -77,7 +78,8 @@ const ComponentForMobile = () => {
             <div className='sectionMobile' id='incioComponent'><Home /></div>
             <div className='sectionMobile' id='bioComponent'><Bio /></div>
             <div className='sectionMobile' id='albunsComponent'><Albuns /></div>
-            <div className='sectionMobile' id='mapaComponent'><Mapa /></div> 
+            <div className='sectionMobile' id='mapaComponent'><Mapa /></div>
+            <div className='sectionMobile' id='contatoComponent'><Contato /></div>
         </Provider>
     )
 }
@@ -95,6 +97,7 @@ const ComponentForBrowser = () => {
                             <div className='section' id='bioComponent'><Bio /></div>
                             <div className='section' id='albunsComponent'><Albuns /></div>
                             <div className='section' id='mapaComponent'><Mapa /></div>
+                            <div className='section' id='contatoComponent'><Contato /></div>
                         </Provider>
                     </ReactFullpage.Wrapper>
                 );

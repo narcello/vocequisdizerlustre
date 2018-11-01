@@ -20,25 +20,30 @@
 }
 
 .fab.fa-spotify:hover {
-    color: #1e7d15
+    color: #10793f
 }
 
 .fab.fa-youtube:hover {
-    color: #dc1313
+    color: #d65757
+}
+
+.fab.fa-facebook:hover {
+    color: #8bc1f3
+}
+
+.fab.fa-instagram:hover {
+    color: rgb(206, 167, 61)
+}
+
+.fab.fa-github:hover {
+    color: #536577;
 }
 
 .btn-social:hover {
-    animation-duration: 1s;
     animation-fill-mode: both;
-    animation-name: fadeIn;
     cursor: pointer;
-    transition: all 1s;
-  }
-  
-  @keyframes fadeIn {
-    0% {opacity: 0.2;}
-    100% {opacity: 1;}
-  }
+    transition: all 0.3s;
+}
 
 .mobile {
     width: 100%;
