@@ -1,5 +1,5 @@
 .albunsCapas {
-    background-color: #bba34d;
+    background: linear-gradient(to top left, #ffa17f, #00223e);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,4 +72,66 @@
     z-index: 1;
     right: 33vmin;
     margin-top: 12vmin;
+}
+
+.card {
+    display: -webkit-inline-box;
+    width: 60vmin;
+    height: 60vmin;
+    border-radius: 25px;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+    box-shadow: 1px 3px 3px rgba(0,0,0,0.2);
+  }
+
+.card:hover {
+    cursor: pointer;
+}
+  
+.card-contents {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+  }
+
+.rotated {
+    transform: rotateY(-180deg);
+}
+
+.card-front {         
+    transform-style: preserve-3d;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to top left, #97afb9, #00223e);
+    transform-style: preserve-3d;
+}
+
+.card-depth {
+    transform: translateZ(100px) scale(0.98);
+    perspective: inherit;
+}
+
+#capaApego .card-front{
+    background-image: url("./capaApego.jpg"); 
+}
+
+#capaCcufg .card-front{
+    background-image: url("./aoVivoCCUFG_cortada.jpg"); 
+}
+
+#capaEp .card-front{
+    background-image: url("./lutreEpCapa_n.jpg"); 
 }

@@ -23,6 +23,7 @@ class Albuns extends React.Component {
     constructor() {
         super()
         this.abreLink = this.abreLink.bind(this)
+        this.clickRotate = this.clickRotate.bind(this)
     }
     abreLink(event) {
         const plataforma = event.target.className.indexOf('spotify') > 0 ? SPOTIFY : YOUTUBE
@@ -31,31 +32,60 @@ class Albuns extends React.Component {
         debugger
         window.open(URLS[url], '_blank');
     }
+    clickRotate(event) {
+        const card = event.currentTarget
+        card.classList.toggle('rotated');
+    }
     AlbunsForDesktop = () => {
         return <div className='albunsCapas'>
             <div className='slide'>
-                <img alt="APEGO" className='capas' id='capaApego' src={capaApego}></img>
+                <div onClick={this.clickRotate} id='capaApego' className="card">
+                    <div class="card-contents card-front" />
+                    <div class="card-contents card-back">
+                        <div class="card-depth">
+                            <h2>Apego</h2>
+                            <p>2017</p>
+                        </div>
+                    </div>
+                </div>
                 <div id='iconesRedesSociais'>
                     <i onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
                     <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
                 </div>
             </div>
             <div className='slide'>
-                <img alt="CCUFG" className='capas' id='capaCcufg' src={capaCcufg}></img>
+                <div onClick={this.clickRotate} id='capaCcufg' className="card">
+                    <div class="card-contents card-front" />
+                    <div class="card-contents card-back">
+                        <div class="card-depth">
+                            <h2>CCUFG</h2>
+                            <p>2017</p>
+                        </div>
+                    </div>
+                </div>
                 <div id='iconesRedesSociais'>
                     <i title='Álbum completo' onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
                     <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
                 </div>
             </div>
             <div className='slide'>
-                <img alt="EP" className='capas' id='capaEp' src={capaEp}></img>
+                <div onClick={this.clickRotate} id='capaEp' className="card">
+                    <div class="card-contents card-front" />
+                    <div class="card-contents card-back">
+                        <div class="card-depth">
+                            <h2>EP LUTRE</h2>
+                            <p>2016</p>
+                        </div>
+                    </div>
+                </div>
                 <div id='iconesRedesSociais'>
-                    <i onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
+                    <i title='Álbum completo' onClick={this.abreLink} className="fab fa-spotify btn-social"></i>
+                    <i title='Apenas uma música no Youtube. Completo no Spotify' onClick={this.abreLink} className="fab fa-youtube btn-social"></i>
                 </div>
             </div>
         </div>;
     }
-    
+
     AlbunsForMobile = () => {
         return (
             <div className='mobile'>
@@ -89,4 +119,3 @@ class Albuns extends React.Component {
 }
 
 export default Albuns
-

@@ -77,7 +77,7 @@ const ComponentForMobile = () => {
         <Provider>
             <div className='sectionMobile' id='incioComponent'><Home /></div>
             <div className='sectionMobile' id='bioComponent'><Bio /></div>
-            <div className='sectionMobile' id='albunsComponent'><Albuns /></div>
+            {/*<div className='sectionMobile' id='albunsComponent'><Albuns /></div>*/}
             <div className='sectionMobile' id='mapaComponent'><Mapa /></div>
             <div className='sectionMobile' id='contatoComponent'><Contato /></div>
         </Provider>
