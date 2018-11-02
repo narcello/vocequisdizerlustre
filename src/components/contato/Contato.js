@@ -23,7 +23,7 @@ class Contato extends React.Component {
         super()
         this.abreLink = this.abreLink.bind(this)
     }
-    abreLink(event, rede) {
+    abreLink(rede) {
         window.open(URLS[rede], '_blank');
     }
     render() {
