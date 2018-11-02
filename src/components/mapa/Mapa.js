@@ -72,25 +72,27 @@ export default class RenderMapa extends Component {
             console.error(error)
         })
     }
-    criaMarcadoresNoMapa = () => {
+    criaMarcadoresNoMapa = (novoMarcador) => {
         const self = this
-        setTimeout(() => {
-            this.state.coordinates.map((cordenada) => {
-                return loadGoogleMapsApi(this.options).then((googleMaps) => {
+        const marcadores = novoMarcador ? [novoMarcador] : this.state.coordinates
+        marcadores.map((cordenada, idx) => {
+            return loadGoogleMapsApi(this.options).then((googleMaps) => {
+                setTimeout(() => {
                     new googleMaps.Marker({
                         position: {
                             lat: parseFloat(cordenada.lat),
                             lng: parseFloat(cordenada.lng)
                         },
+                        animation: googleMaps.Animation.DROP,
                         map: self.map,
                         title: 'Hi'
 
                     })
-                }).catch(function (error) {
-                    console.error(error)
-                })
+                }, idx * 300)
+            }).catch(function (error) {
+                console.error(error)
             })
-        }, 1000)
+        })
     }
     addMarcadorNoBanco = () => {
         const self = this
@@ -133,8 +135,9 @@ export default class RenderMapa extends Component {
     }
     togglePopup() {
         if (this.state.popup.showPopup) {
+            const novoMarcador = this.state.cordenadasDoUsuario
             this.centralizarMapa()
-            this.criaMarcadoresNoMapa()
+            this.criaMarcadoresNoMapa(novoMarcador)
         }
 
         this.setState({
