@@ -40,9 +40,9 @@ class Albuns extends React.Component {
         return <div className='albunsCapas'>
             <div className='slide'>
                 <div onClick={this.clickRotate} id='capaApego' className="card">
-                    <div class="card-contents card-front" />
-                    <div class="card-contents card-back">
-                        <div class="card-depth">
+                    <div className="card-contents card-front" />
+                    <div className="card-contents card-back">
+                        <div className="card-depth">
                             <h2>Apego</h2>
                             <p>2017</p>
                         </div>
@@ -55,9 +55,9 @@ class Albuns extends React.Component {
             </div>
             <div className='slide'>
                 <div onClick={this.clickRotate} id='capaCcufg' className="card">
-                    <div class="card-contents card-front" />
-                    <div class="card-contents card-back">
-                        <div class="card-depth">
+                    <div className="card-contents card-front" />
+                    <div className="card-contents card-back">
+                        <div className="card-depth">
                             <h2>CCUFG</h2>
                             <p>2017</p>
                         </div>
@@ -70,9 +70,9 @@ class Albuns extends React.Component {
             </div>
             <div className='slide'>
                 <div onClick={this.clickRotate} id='capaEp' className="card">
-                    <div class="card-contents card-front" />
-                    <div class="card-contents card-back">
-                        <div class="card-depth">
+                    <div className="card-contents card-front" />
+                    <div className="card-contents card-back">
+                        <div className="card-depth">
                             <h2>EP LUTRE</h2>
                             <p>2016</p>
                         </div>
