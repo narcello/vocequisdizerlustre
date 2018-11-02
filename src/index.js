@@ -21,8 +21,6 @@ let fpapi = null
 const fullpageOptions = {
     autoScrolling: true,
     parallax: true,
-    slidesNavigation: true,
-    controlArrows: false,
     normalScrollElements: "#map",
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
     onLeave: function (origin, destination, direction) {
