@@ -101,7 +101,6 @@ export default class RenderMapa extends Component {
                     if (res.uid) {
                         this.addMarcadorNoBancoSoa(res.uid, coordinatesBrowser)
                         self.state.coordinates.push(coordinatesBrowser)
-                        self.criaMarcadoresNoMapa()
                         this.setState({
                             popup: {
                                 showPopup: !this.state.showPopup,
@@ -124,6 +123,11 @@ export default class RenderMapa extends Component {
         navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
     }
     togglePopup() {
+        if (this.state.popup.showPopup)
+            setTimeout(() => {
+                this.criaMarcadoresNoMapa()
+            }, 1000)
+
         this.setState({
             popup: {
                 showPopup: !this.state.popup.showPopup
