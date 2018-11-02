@@ -1,10 +1,9 @@
-import React, { Component, Suspense } from 'react'
+import React, { Component, Suspense, Fragment } from 'react'
 import Button from '@material-ui/core/Button'
-import firebase from 'firebase'
 import loadGoogleMapsApi from 'load-google-maps-api'
 import apiKey from './index'
 import './Mapa.css'
-import addMarcadorNoBancoSoa from './soa'
+import { addMarcadorNoBancoSoa, pegaCordenadasSalvasNoBanco } from './soa'
 import authWithGoogle from '../../auth/withGoogle'
 import styleMapRetro from './styleMapRetro'
 import styleMapNight from './styleMapNight'
@@ -32,45 +31,30 @@ export default class RenderMapa extends Component {
                 userName: null,
                 srcPhoto: null
             },
-            ehBrowser: false,
             tipoDeVisaoMapa: VISAO_RETRO_DO_MAPA
         }
         this.options = {
             key: apiKey
         }
 
+        this.map = null;
         this.styleMapRetro = styleMapRetro
         this.styleMapNight = styleMapNight
-        this.map = null;
         this.addMarcadorNoBancoSoa = addMarcadorNoBancoSoa;
+        this.pegaCordenadasSalvasNoBanco = pegaCordenadasSalvasNoBanco;
         this.criaMarcadoresNoMapa = this.criaMarcadoresNoMapa.bind(this)
         this.addMarcadorNoBanco = this.addMarcadorNoBanco.bind(this)
         this.pegaLocalizacaoDoUsuario = this.pegaLocalizacaoDoUsuario.bind(this)
         this.togglePopup = this.togglePopup.bind(this)
-        this.updateDimensions = this.updateDimensions.bind(this)
         this.toggleVisaoMapa = this.toggleVisaoMapa.bind(this)
         this.setTipoVisaoMapa = this.setTipoVisaoMapa.bind(this)
     }
-    updateDimensions() {
-        const ehBrowser = window.innerWidth > 584
-        this.setState({ ehBrowser })
-    }
-    componentDidMount() {
-        window.addEventListener("resize", this.updateDimensions);
-    }
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions);
-    }
     componentWillMount() {
-        this.updateDimensions();
         const self = this
 
-        let coordinates = []
-        firebase.database().ref('geoLocations').once('value', (snapshot) => {
-            Object.keys(snapshot.val()).map((key) =>
-                coordinates.push(snapshot.val()[key].coordinates))
-        }).then(() => this.setState({ coordinates })
-        ).then(() => this.criaMarcadoresNoMapa())
+        this.pegaCordenadasSalvasNoBanco()
+            .then((coordinates) => this.setState({ coordinates }))
+            .then(() => this.criaMarcadoresNoMapa())
 
         loadGoogleMapsApi(this.options).then(function (googleMaps) {
             self.map = new googleMaps.Map(document.querySelector('#map'), {
@@ -86,15 +70,6 @@ export default class RenderMapa extends Component {
         }).catch(function (error) {
             console.error(error)
         })
-    }
-    pegaLocalizacaoDoUsuario = (callback) => {
-        var geoSuccess = (position) => {
-            callback({ position })
-        };
-        var geoErr = (err) => {
-            callback(err)
-        }
-        navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
     }
     criaMarcadoresNoMapa = () => {
         const self = this
@@ -139,25 +114,21 @@ export default class RenderMapa extends Component {
             }
         })
     }
+    pegaLocalizacaoDoUsuario = (callback) => {
+        var geoSuccess = (position) => {
+            callback({ position })
+        };
+        var geoErr = (err) => {
+            callback(err)
+        }
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
+    }
     togglePopup() {
         this.setState({
             popup: {
                 showPopup: !this.state.popup.showPopup
             }
         });
-    }
-    componentForBrowser = (lang) => {
-        return (
-            <div id='parteSemMapa'>
-                <div id='title'>{mapa[lang].parteSemMapa.title}</div>
-                <Button variant="contained"
-                    color="primary"
-                    id='addMarcadorNoBancoBtn'
-                    onClick={this.addMarcadorNoBanco}>
-                    {mapa[lang].parteSemMapa.textBtn}
-                        </Button>
-            </div>
-        )
     }
     toggleVisaoMapa() {
         const tipoDeVisaoMapaAtual = -this.state.tipoDeVisaoMapa
@@ -173,26 +144,51 @@ export default class RenderMapa extends Component {
             self.map.setMapTypeId('styled_map');
         })
     }
+    componentForBrowser = (lang) => {
+        return (
+            <div id='parteSemMapa'>
+                <div id='title'>{mapa[lang].parteSemMapa.title}</div>
+                <Button variant="contained"
+                    color="primary"
+                    id='addMarcadorNoBancoBtn'
+                    onClick={this.addMarcadorNoBanco}>
+                    {mapa[lang].parteSemMapa.textBtn}
+                </Button>
+            </div>
+        )
+    }
+    componentForMobile = (lang) => {
+        return (
+            <Fragment key='componentForMobile'>
+                <div id='titleMobile'>{mapa[lang].parteSemMapa.title}</div>
+                <div id='divAddMarcadorNoBancoBtnMobile'>
+                    <Button variant="contained"
+                        color="primary"
+                        id='addMarcadorNoBancoBtnMobile'
+                        onClick={this.addMarcadorNoBanco}>
+                        {mapa[lang].parteSemMapa.textBtn}
+                    </Button>
+                </div>
+            </Fragment>
+        )
+    }
     render() {
         return (
             <Context.Consumer>
                 {(context) => (
-                    <React.Fragment>
+                    <Fragment>
                         <div id='container'>
-                            {this.state.ehBrowser && this.componentForBrowser(context.lang)}
-                            <div id='titleMobile'>{mapa[context.lang].parteSemMapa.title}</div>
-                            <div id='divAddMarcadorNoBancoBtnMobile'>
-                                <Button variant="contained"
-                                    color="primary"
-                                    id='addMarcadorNoBancoBtnMobile'
-                                    onClick={this.addMarcadorNoBanco}>
-                                    {mapa[context.lang].parteSemMapa.textBtn}
-                                </Button>
-                            </div>
+                            {
+                                context.ehBrowser ?
+                                    this.componentForBrowser(context.lang) :
+                                    this.componentForMobile(context.lang)
+                            }
+
                             <div onClick={this.toggleVisaoMapa} id='toggleVisaoMapa'>
-                                {this.state.tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ?
-                                    <i id='iconVisaoNoturna' className="fas fa-eye"></i> :
-                                    <i id='iconVisaoRetro' className="far fa-eye"></i>}
+                                {
+                                    this.state.tipoDeVisaoMapa === VISAO_RETRO_DO_MAPA ?
+                                        <i id='iconVisaoNoturna' className="fas fa-eye"></i> :
+                                        <i id='iconVisaoRetro' className="far fa-eye"></i>}
                             </div>
                             <div id='map'></div>
                             {this.state.popup.showPopup ?
@@ -205,7 +201,7 @@ export default class RenderMapa extends Component {
                                 : null
                             }
                         </div>
-                    </React.Fragment>)}
+                    </Fragment>)}
             </Context.Consumer>
         )
     }
