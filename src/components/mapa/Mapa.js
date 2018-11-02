@@ -48,6 +48,7 @@ export default class RenderMapa extends Component {
         this.togglePopup = this.togglePopup.bind(this)
         this.toggleVisaoMapa = this.toggleVisaoMapa.bind(this)
         this.setTipoVisaoMapa = this.setTipoVisaoMapa.bind(this)
+        this.centralizarMapa = this.centralizarMapa.bind(this)
     }
     componentWillMount() {
         const self = this
@@ -73,21 +74,23 @@ export default class RenderMapa extends Component {
     }
     criaMarcadoresNoMapa = () => {
         const self = this
-        this.state.coordinates.map((cordenada) => {
-            return loadGoogleMapsApi(this.options).then((googleMaps) => {
-                new googleMaps.Marker({
-                    position: {
-                        lat: parseFloat(cordenada.lat),
-                        lng: parseFloat(cordenada.lng)
-                    },
-                    map: self.map,
-                    title: 'Hi'
+        setTimeout(() => {
+            this.state.coordinates.map((cordenada) => {
+                return loadGoogleMapsApi(this.options).then((googleMaps) => {
+                    new googleMaps.Marker({
+                        position: {
+                            lat: parseFloat(cordenada.lat),
+                            lng: parseFloat(cordenada.lng)
+                        },
+                        map: self.map,
+                        title: 'Hi'
 
+                    })
+                }).catch(function (error) {
+                    console.error(error)
                 })
-            }).catch(function (error) {
-                console.error(error)
             })
-        })
+        }, 1000)
     }
     addMarcadorNoBanco = () => {
         const self = this
@@ -101,6 +104,12 @@ export default class RenderMapa extends Component {
                     if (res.uid) {
                         this.addMarcadorNoBancoSoa(res.uid, coordinatesBrowser)
                         self.state.coordinates.push(coordinatesBrowser)
+                        this.setState({
+                            cordenadasDoUsuario: {
+                                lat: coordinatesBrowser.lat,
+                                lng: coordinatesBrowser.lng
+                            }
+                        })
                         this.setState({
                             popup: {
                                 showPopup: !this.state.showPopup,
@@ -123,16 +132,30 @@ export default class RenderMapa extends Component {
         navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
     }
     togglePopup() {
-        if (this.state.popup.showPopup)
-            setTimeout(() => {
-                this.criaMarcadoresNoMapa()
-            }, 1000)
+        if (this.state.popup.showPopup) {
+            this.centralizarMapa()
+            this.criaMarcadoresNoMapa()
+        }
 
         this.setState({
             popup: {
                 showPopup: !this.state.popup.showPopup
             }
         });
+    }
+    centralizarMapa = () => {
+        const self = this
+        let posUserNow
+        loadGoogleMapsApi(this.options).then((googleMaps) => {
+            posUserNow = new googleMaps.LatLng(
+                self.state.cordenadasDoUsuario.lat,
+                self.state.cordenadasDoUsuario.lng
+            )
+        }).then(() => {
+            self.map.setZoom(15)
+            self.map.setCenter(posUserNow)
+        })
+
     }
     toggleVisaoMapa() {
         const tipoDeVisaoMapaAtual = -this.state.tipoDeVisaoMapa
