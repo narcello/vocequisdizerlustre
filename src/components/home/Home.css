@@ -15,14 +15,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.parallax { 
   background-image: url("./capa.jpg");
-  filter: invert(15%);
+  height: 500px; 
+  background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  filter: invert(15%);
 }
 
 .globo {
-  /* display: none; */
   order: 0;
   font-size: 1.7em;
   position: absolute !important;

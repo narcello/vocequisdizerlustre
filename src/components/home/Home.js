@@ -14,7 +14,7 @@ class Home extends Component {
       <Context.Consumer>
         {(context) => (
           <React.Fragment>
-            <div className="App-header">
+            <div className="App-header parallax">
               <i className="fas fa-globe-americas globo"></i>
               <div id='languagePick'>
                 <div onClick={() => context.setCurrentLang('pt')}>
