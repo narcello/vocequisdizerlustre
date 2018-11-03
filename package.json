@@ -13,11 +13,12 @@
     "react-scripts": "2.0.5"
   },
   "scripts": {
-    "deploy": "npm run build && ./node_modules/.bin/gh-pages -d build",
+    "deploy": "npm run build && npm run create_cname && ./node_modules/.bin/gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "create_cname": "./src/create_cname.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
