@@ -3,7 +3,11 @@ import Button from '@material-ui/core/Button'
 import loadGoogleMapsApi from 'load-google-maps-api'
 import apiKey from './index'
 import './Mapa.css'
-import { addMarcadorNoBancoSoa, pegaCordenadasSalvasNoBanco } from '../../firebase/soa'
+import {
+    addMarcadorNoBancoSoa,
+    pegaCordenadasSalvasNoBanco,
+    temUsuarioLogado
+} from '../../firebase/soa'
 import authWithGoogle from '../../auth/withGoogle'
 import styleMapRetro from './styleMapRetro'
 import styleMapNight from './styleMapNight'
@@ -40,10 +44,12 @@ export default class RenderMapa extends Component {
         this.map = null;
         this.styleMapRetro = styleMapRetro
         this.styleMapNight = styleMapNight
+        this.temUsuarioLogado = temUsuarioLogado;
         this.addMarcadorNoBancoSoa = addMarcadorNoBancoSoa;
         this.pegaCordenadasSalvasNoBanco = pegaCordenadasSalvasNoBanco;
         this.criaMarcadoresNoMapa = this.criaMarcadoresNoMapa.bind(this)
         this.addMarcadorNoBanco = this.addMarcadorNoBanco.bind(this)
+        this.preparaParaAddMarcadorNoBanco = this.preparaParaAddMarcadorNoBanco.bind(this)
         this.pegaLocalizacaoDoUsuario = this.pegaLocalizacaoDoUsuario.bind(this)
         this.togglePopup = this.togglePopup.bind(this)
         this.toggleVisaoMapa = this.toggleVisaoMapa.bind(this)
@@ -94,32 +100,20 @@ export default class RenderMapa extends Component {
             })
         })
     }
-    addMarcadorNoBanco = () => {
-        const self = this
+    preparaParaAddMarcadorNoBanco = () => {
         this.pegaLocalizacaoDoUsuario((res) => {
             if (res.position) {
                 const coordinatesBrowser = {
                     lat: res.position.coords.latitude,
                     lng: res.position.coords.longitude
                 }
-                authWithGoogle((res) => {
-                    if (res.uid) {
-                        this.addMarcadorNoBancoSoa(res.uid, coordinatesBrowser)
-                        self.state.coordinates.push(coordinatesBrowser)
-                        this.setState({
-                            cordenadasDoUsuario: {
-                                lat: coordinatesBrowser.lat,
-                                lng: coordinatesBrowser.lng
-                            }
-                        })
-                        this.setState({
-                            popup: {
-                                showPopup: !this.state.showPopup,
-                                userName: res.displayName,
-                                srcPhoto: res.photoURL
-                            }
-                        })
-                    }
+                this.temUsuarioLogado((res) => {
+                    if (res.uid)
+                        this.addMarcadorNoBanco(res, coordinatesBrowser);
+                    else authWithGoogle((res) => {
+                        if (res.uid)
+                            this.addMarcadorNoBanco(res, coordinatesBrowser);
+                    })
                 })
             }
         })
@@ -132,6 +126,23 @@ export default class RenderMapa extends Component {
             callback(err)
         }
         navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);
+    }
+    addMarcadorNoBanco(res, coordinatesBrowser) {
+        this.addMarcadorNoBancoSoa(res.uid, coordinatesBrowser);
+        this.state.coordinates.push(coordinatesBrowser);
+        this.setState({
+            cordenadasDoUsuario: {
+                lat: coordinatesBrowser.lat,
+                lng: coordinatesBrowser.lng
+            }
+        });
+        this.setState({
+            popup: {
+                showPopup: !this.state.showPopup,
+                userName: res.displayName,
+                srcPhoto: res.photoURL
+            }
+        });
     }
     togglePopup() {
         if (this.state.popup.showPopup) {
@@ -181,7 +192,7 @@ export default class RenderMapa extends Component {
                 <Button variant="contained"
                     color="primary"
                     id='addMarcadorNoBancoBtn'
-                    onClick={this.addMarcadorNoBanco}>
+                    onClick={this.preparaParaAddMarcadorNoBanco}>
                     {mapa[lang].parteSemMapa.textBtn}
                 </Button>
             </div>
@@ -195,7 +206,7 @@ export default class RenderMapa extends Component {
                     <Button variant="contained"
                         color="primary"
                         id='addMarcadorNoBancoBtnMobile'
-                        onClick={this.addMarcadorNoBanco}>
+                        onClick={this.preparaParaAddMarcadorNoBanco}>
                         {mapa[lang].parteSemMapa.textBtn}
                     </Button>
                 </div>
