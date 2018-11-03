@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'lutre.com.br' > CNAME.txt
+echo 'lutre.com.br' > CNAME
