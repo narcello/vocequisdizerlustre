@@ -27,7 +27,13 @@ const fullpageOptions = {
         if (destination.index === 3 && isMobile())
             fpapi.setAutoScrolling(false)
         else fpapi.setAutoScrolling(true)
-    }
+        localStorage.setItem('lastSectionActive', destination.index)
+    },
+    afterRender: function () {
+        const idx = localStorage.getItem('lastSectionActive')
+        fpapi.moveTo(parseInt(idx) + 1)
+
+    },
 };
 
 const isMobile = () => {
