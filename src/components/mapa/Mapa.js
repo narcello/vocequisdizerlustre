@@ -108,7 +108,7 @@ export default class RenderMapa extends Component {
                     lng: res.position.coords.longitude
                 }
                 this.temUsuarioLogado((res) => {
-                    if (res.uid)
+                    if (res)
                         this.addMarcadorNoBanco(res, coordinatesBrowser);
                     else authWithGoogle((res) => {
                         if (res.uid)
@@ -119,7 +119,7 @@ export default class RenderMapa extends Component {
         })
     }
     pegaLocalizacaoDoUsuario = (callback) => {
-        var geoSuccess = (position) => {
+        var geoSuccess = (position) => { 
             callback({ position })
         };
         var geoErr = (err) => {
