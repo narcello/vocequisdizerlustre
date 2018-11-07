@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Home from './Home';
+import testeHttpsBasico, { testeAddMarcadorViaHttps } from '../../firebase/soa'
 
-it.skip('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Home />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('Test https call function', async () => {
+  const res = await testeHttpsBasico()
+  expect(res).toEqual('httpsbasico')
+});
+
+it.skip('Test addMarcadorViaHttps', async () => {
+  const res = await testeAddMarcadorViaHttps()
+  expect(res).toEqual('addMarcadorViaHttps')
 });

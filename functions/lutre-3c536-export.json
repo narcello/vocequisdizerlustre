@@ -1,0 +1,106 @@
+{
+  "geoLocations" : {
+    "5tZ2LcSITyZ5qNQTA2UmoJSSkQ32" : {
+      "coordinates" : {
+        "lat" : -16.695207399999997,
+        "lng" : -49.286561
+      }
+    },
+    "SwDvWxFW5ddXldKpqrIdoxVrqNb2" : {
+      "coordinates" : {
+        "lat" : -16.6952057,
+        "lng" : -49.2865538
+      }
+    },
+    "TtHynpafTFRtS4WLqfy6TjoXUJh2" : {
+      "coordinates" : {
+        "lat" : -16.6952158,
+        "lng" : -49.28655620000001
+      }
+    },
+    "XfPeyarVNxMPJ0vFYPaAVnOuyCh1" : {
+      "coordinates" : {
+        "lat" : -16.6952026,
+        "lng" : -49.2865427
+      }
+    },
+    "bkECir91Dmb6sJULJB84N3mUVVJ3" : {
+      "coordinates" : {
+        "lat" : -16.6962607,
+        "lng" : -49.2892228
+      }
+    },
+    "h7u434fvNshUR9MxMxbG8aOhLtv1" : {
+      "coordinates" : {
+        "lat" : -16.6952127,
+        "lng" : -49.286558299999996
+      }
+    },
+    "hJD9KAuVDZb5vzZl9cprvXjGHSm1" : {
+      "coordinates" : {
+        "lat" : -16.6952783,
+        "lng" : -49.2865453
+      }
+    },
+    "mZtzYM2He9MxUA5Upp0oMiBVBmJ2" : {
+      "coordinates" : {
+        "lat" : -16.6796738,
+        "lng" : -49.238416
+      }
+    },
+    "p8DoXRV6XGdpBM4M8mZkmE3pYc62" : {
+      "coordinates" : {
+        "lat" : -16.6952166,
+        "lng" : -49.286544899999996
+      }
+    },
+    "ri257pZ4kVfy1RN7sveXoQ57NfG3" : {
+      "coordinates" : {
+        "lat" : -16.6951416,
+        "lng" : -49.286558299999996
+      }
+    }
+  },
+  "user" : {
+    "5tZ2LcSITyZ5qNQTA2UmoJSSkQ32" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    },
+    "DrgMNzTEiMTtqsFYCwVkyaoNZky1" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    },
+    "SwDvWxFW5ddXldKpqrIdoxVrqNb2" : {
+      "email" : "mvnota10@gmail.com",
+      "nome" : "Marcello Victor"
+    },
+    "TtHynpafTFRtS4WLqfy6TjoXUJh2" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    },
+    "XfPeyarVNxMPJ0vFYPaAVnOuyCh1" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    },
+    "bkECir91Dmb6sJULJB84N3mUVVJ3" : {
+      "email" : "no.reply.pozzzo@gmail.com",
+      "nome" : "PozZzo Hoteis"
+    },
+    "h7u434fvNshUR9MxMxbG8aOhLtv1" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    },
+    "hJD9KAuVDZb5vzZl9cprvXjGHSm1" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    },
+    "mZtzYM2He9MxUA5Upp0oMiBVBmJ2" : {
+      "email" : "ribeirolodi.clara@gmail.com",
+      "nome" : "Clara Lodi"
+    },
+    "ri257pZ4kVfy1RN7sveXoQ57NfG3" : {
+      "email" : "marcellovcs@gmail.com",
+      "nome" : "Marcello Silva"
+    }
+  }
+}

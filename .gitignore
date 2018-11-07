@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/functions/node_modules
+
+/functions/lutre-3c536-69c937dc28f0.json
 
 # testing
 /coverage
