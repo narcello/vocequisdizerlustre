@@ -10,12 +10,14 @@ const URLS = {
     SPOTIFY: 'https://open.spotify.com/artist/3ysDWgYvkUnRYR7QQIh87W?si=pdDu1wscRF6d69Vj3Z13Lw',
     YOUTUBE: 'https://www.youtube.com/channel/UCc4Y7CGgzuAkU0TND7Jccjg/videos',
     GITHUB: 'https://github.com/MarcelloVSilva',
+    GMAIL: 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=bandalutreoficial@gmail.com'
 }
 const FACEBOOK = 'FACEBOOK'
 const INSTAGRAM = 'INSTAGRAM'
 const SPOTIFY = 'SPOTIFY'
 const YOUTUBE = 'YOUTUBE'
 const GITHUB = 'GITHUB'
+const GMAIL = 'GMAIL'
 
 
 class Contato extends React.Component {
@@ -24,7 +26,7 @@ class Contato extends React.Component {
         this.abreLink = this.abreLink.bind(this)
     }
     abreLink(rede) {
-        window.open(URLS[rede], '_blank');
+        window.open(URLS[rede]);
     }
     render() {
         return (
@@ -44,9 +46,13 @@ class Contato extends React.Component {
                             <div className='divIcon' id='yt'>
                                 <i onClick={()=>this.abreLink(YOUTUBE)} className="fab fa-youtube btn-social"></i>
                             </div>
+                            <div className='divIcon' id='gm'>
+                                <i onClick={()=>this.abreLink(GMAIL)} className="fas fa-envelope btn-social"></i>
+                            </div>
+                            {context.ehBrowser &&
                             <div className='divIcon' id='gh'>
                                 <i onClick={()=>this.abreLink(GITHUB)} className="fab fa-github btn-social"></i>
-                            </div>
+                            </div>}
                         </div>
                     </React.Fragment>
                 )}
