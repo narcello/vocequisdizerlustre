@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-
 .App {
   text-align: center;
 }
@@ -26,10 +23,14 @@
   filter: invert(15%);
 }
 
-.globo {
+#globo {
   order: 0;
   font-size: 1.7em;
   position: absolute !important;
+  align-self: flex-start;
+  opacity: 0;
+  margin: 0;
+  transition: all 2s;
 }
 
 #languagePick {
@@ -53,13 +54,6 @@
 #languagePick > div:hover {
   cursor: pointer;
   color: slategray;
-}
-
-
-.fa-globe-americas {
-  align-self: flex-start;
-  position: fixed;
-  margin: 5vmin 7vmin 0 0;
 }
 
 .fa-globe-americas:hover + #languagePick {
@@ -89,4 +83,12 @@
 
 .bandeiraBrasil:hover {
   width: 58px;
+}
+
+#frasePrincipal {
+
+  font-size: 50px;
+  opacity: 0;
+  margin-top: 100px;
+  transition: all 2s;
 }

@@ -9,13 +9,23 @@ import bdita from  '../../languages/icons/bd-ita.png'
 import { Context } from '../../providers/Provider'
 
 class Home extends Component {
+  componentDidMount(){
+        setTimeout(() => {
+          const globo = document.getElementById('globo').style
+          const frase = document.getElementById('frasePrincipal').style
+          globo.margin = '5vmin 7vmin 0 0'
+          globo.opacity = 1
+          frase.opacity = 1
+          frase.marginTop = 0
+        }, 500)
+  }
   render() {
     return (
       <Context.Consumer>
         {(context) => (
           <React.Fragment>
             <div className="App-header parallax">
-              <i className="fas fa-globe-americas globo"></i>
+              <i id='globo' className="fas fa-globe-americas"></i>
               <div id='languagePick'>
                 <div onClick={() => context.setCurrentLang('pt')}>
                   <img alt='flag' className="bandeiras bandeiraBrasil" src={bdbr}/>
@@ -30,7 +40,7 @@ class Home extends Component {
                   <img alt='flag' className="bandeiras bandeiraItalia" src={bdita}/>
                 </div>
               </div>
-              <h2>{cardPrincipal[context.lang].title}<i>lustre</i> ?</h2>
+              <div id='frasePrincipal'>{cardPrincipal[context.lang].title}<i>lustre</i> ?</div>
             </div>
           </React.Fragment>
         )}
