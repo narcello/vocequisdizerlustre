@@ -40,7 +40,7 @@ class Home extends Component {
                   <img alt='flag' className="bandeiras bandeiraItalia" src={bdita}/>
                 </div>
               </div>
-              <div id='frasePrincipal'>{cardPrincipal[context.lang].title}<i>lustre</i> ?</div>
+              <div id='frasePrincipal'>{cardPrincipal[context.lang].title}<i>lustre</i>?</div>
             </div>
           </React.Fragment>
         )}
