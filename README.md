@@ -42,3 +42,6 @@ import Albuns from './components/albuns/Albuns';
 npm start
 ```
 * Depois que tiver modificado, me faça um pull-request.
+
+TESTE .gitattributes
+
