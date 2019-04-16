@@ -32,13 +32,19 @@ import Albuns from './components/albuns/Albuns';
 // firebase.initializeApp(configFirebase);
 ```
 
-* Remova: 
+* RemovaXXXXX: 
 ```javascript
 <div className='section' id='mapaComponent'><Mapa /></div>
 ```
 
-* Run
+* rÃn
 ```bash
 npm start
 ```
 * Depois que tiver modificado, me faça um pull-request.
+
+TESTE .gitattributes
+
+
+XXXXX
+
